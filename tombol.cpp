@@ -44,6 +44,7 @@ int main(){
    // menyembunyikan tampilan kursor
    curs_set(0);
 
+  // nodelay - enable or disable block during read
    nodelay(stdscr, TRUE);
    
    // tampilan awal di tengah layar
@@ -62,15 +63,10 @@ int main(){
               */ 
              if(tombol == KEY_ENTER)
                 { 
-                  // bergerak ke kiri, jadi kolom berkurang
-                  //beep(230,100);
-                  ///beep();
-                  cout << "\a";
-                  char ascii = 7;
-                  cout << ascii;
-                  mvprintw(baris,kolom,"\a");
-                  // Sleep(500);
-                }  
+                  // misal kalau menekan tombol enter
+                  // ada sesuatu yang akan dilakukan
+                  // dapat dituliskan di sini
+                  }  
              else if(tombol == KEY_LEFT)
                 { 
                   // bergerak ke kiri, jadi kolom berkurang
