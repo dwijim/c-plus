@@ -9,6 +9,7 @@
  * 
  * file ini disimpan dengan nama tombol.cpp
  * compile g++ tombol.cpp - tombol -l ncurses
+ * 
  * file ini juga disimpan di github, tapi masih bingung
  * --------------------------------------------- */
 
