@@ -9,6 +9,7 @@
  * 
  * file ini disimpan dengan nama tombol.cpp
  * compile g++ tombol.cpp - tombol -l ncurses
+ * file ini juga disimpan di github, tapi masih bingung
  * --------------------------------------------- */
 
 #include "iostream"
@@ -17,6 +18,7 @@
 
 using namespace std;
 
+// mendefinisikan tombol ESC nilai 27
 #define KEY_ESC 27
 
 // harus ada fungsi main()
