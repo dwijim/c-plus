@@ -44,7 +44,7 @@ int main(){
 
    nodelay(stdscr, TRUE);
 
-   // membuat looping selama tidak menekan tombol ESC ...
+   // membuat looping selama tidak menekan tombol ESC
      while (tombol != KEY_ESC) {
           if ((tombol = getch()) == ERR) {
               /* user hasn't responded
