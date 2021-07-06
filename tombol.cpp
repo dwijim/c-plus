@@ -45,6 +45,9 @@ int main(){
    curs_set(0);
 
    nodelay(stdscr, TRUE);
+   
+   // tampilan awal di tengah layar
+   mvprintw(baris,kolom," aku ");
 
    // membuat looping selama tidak menekan tombol ESC
      while (tombol != KEY_ESC) {
