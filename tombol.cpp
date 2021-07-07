@@ -8,7 +8,7 @@
  * 
  * 
  * file ini disimpan dengan nama tombol.cpp
- * compile g++ tombol.cpp - tombol -l ncurses
+ * compile g++ tombol.cpp -o tombol -l ncurses
  * 
  * file ini juga disimpan di github, tapi masih bingung
  * --------------------------------------------- */
@@ -22,6 +22,12 @@ using namespace std;
 // mendefinisikan tombol ESC nilai 27
 #define KEY_ESC 27
 
+// kolom tengah layar
+#define kolom_tengah 40
+
+// posisi baris bawah
+#define baris_bawah 22
+
 // harus ada fungsi main()
 int main(){
 
@@ -30,10 +36,10 @@ int main(){
    short int baris, kolom;
    
    // memberi posisi baris di bagian bawah
-   baris = 22;
+   baris = baris_bawah;
 
    // meletakkan posisi awal di tengah kolom layar
-   kolom = 40;
+   kolom = kolom_tengah;
 
   // menginisiasi layar untuk penggunaan ncurses
    initscr();
