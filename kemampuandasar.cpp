@@ -104,7 +104,7 @@ int Perulangan(int barisnya, int kolomnya)
  
     for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
      {
-    mvprintw(barisnya+5+bilangan2,kolomnya,"Ilkom Unila \n");
+    mvprintw(barisnya+6+bilangan2,kolomnya,"Ilkom Unila \n");
 
 
      }    
