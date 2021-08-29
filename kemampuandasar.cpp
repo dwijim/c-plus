@@ -50,6 +50,70 @@ int MenjumlahBilangan(int barisnya, int kolomnya)
     return 0;
 }
 
+int MembandingkanBilangan(int barisnya, int kolomnya)
+{
+    int bilangan1,bilangan2,jumlah;
+    
+    // menghapus layar
+    clear();
+    
+    // menampilkan tulisan
+    mvprintw(barisnya+0,kolomnya,"Kemampuan Dasar Komputer");
+    mvprintw(barisnya+2,kolomnya,"3. Membandingkan bilangan");
+    
+    
+    mvprintw(barisnya+4,kolomnya,"Masukkan bilangan #1: ");
+    scanw("%d",&bilangan1);
+ 
+    mvprintw(barisnya+5,kolomnya,"Masukkan bilangan #2: ");
+    scanw("%d",&bilangan2);
+ 
+    if (bilangan1>bilangan2)
+     {
+     mvprintw(barisnya+6,kolomnya,"Bilangan %d lebih besar dari bilangan %d\n",bilangan1,bilangan2);
+     }
+    else if (bilangan2>bilangan1)
+     {
+     mvprintw(barisnya+6,kolomnya,"Bilangan %d lebih besar dari bilangan %d\n",bilangan2,bilangan1);
+     }
+    else 
+     {
+     mvprintw(barisnya+6,kolomnya,"Bilangan %d sama dengan bilangan %d\n",bilangan2,bilangan1);
+     }
+     
+    
+    getch();
+    
+    return 0;
+}
+
+int Perulangan(int barisnya, int kolomnya)
+{
+    int bilangan1,bilangan2,jumlah;
+    
+    // menghapus layar
+    clear();
+    
+    // menampilkan tulisan
+    mvprintw(barisnya+0,kolomnya,"Kemampuan Dasar Komputer");
+    mvprintw(barisnya+2,kolomnya,"4. Melakukan Perulangan");
+    
+    
+    mvprintw(barisnya+4,kolomnya,"Masukkan banyaknya perulangan: ");
+    scanw("%d",&bilangan1);
+ 
+    for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
+     {
+    mvprintw(barisnya+5+bilangan2,kolomnya,"Ilkom Unila \n");
+
+
+     }    
+    
+    getch();
+    
+    return 0;
+}
+
 // fungsi untuk menentukan apakah suatu bilangan
 // termasuk bulangan prima atau tidak 
 // 1 - bilangan prima
@@ -90,11 +154,11 @@ int MenuPrima(int barisnya, int kolomnya)
     scanw("%d",&bilangan1);
     if (apakah_prima(bilangan1)==0)
     {
-    mvprintw(barisnya+6,kolomnya,"Bilangan: %d bukan bilangan prima",bilangan1);
+    mvprintw(barisnya+6,kolomnya,"Bilangan: %d bukan bilangan prima\n",bilangan1);
     }
     else
     {
-    mvprintw(barisnya+6,kolomnya,"Bilangan: %d adalah bilangan prima",bilangan1);
+    mvprintw(barisnya+6,kolomnya,"Bilangan: %d adalah bilangan prima\n",bilangan1);
     }
         
     getch();
@@ -146,6 +210,10 @@ int main(){
                 switch (pilihan) {
                     
                     case 1 : MenjumlahBilangan(baris,kolom);
+                             break;
+                    case 3 : MembandingkanBilangan(baris,kolom);
+                             break;
+                    case 4 : Perulangan(baris,kolom);
                              break;
                     case 5 : MenuPrima(baris,kolom);
                              break;
