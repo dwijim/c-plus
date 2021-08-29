@@ -49,6 +49,60 @@ int MenjumlahBilangan(int barisnya, int kolomnya)
     
     return 0;
 }
+
+// fungsi untuk menentukan apakah suatu bilangan
+// termasuk bulangan prima atau tidak 
+// 1 - bilangan prima
+// 0 - bukan bilangan prima
+int apakah_prima(int bilangannya)
+{
+ int ulang,prima;
+ prima = 1;
+ if (bilangannya==2) {prima=1;}
+ else
+   {
+     for (ulang=2;ulang<bilangannya;ulang++)
+        {
+          if ((bilangannya % ulang)==0)
+             {
+               prima = 0;
+               break;
+             }
+        }
+
+   }
+   return prima;
+} 
+
+int MenuPrima(int barisnya, int kolomnya)
+{
+    int bilangan1;
+    
+    // menghapus layar
+    clear();
+    
+    // menampilkan tulisan
+    mvprintw(barisnya+0,kolomnya,"Kemampuan Lanjut Komputer");
+    mvprintw(barisnya+2,kolomnya,"1. Menentukan bilangan prima");
+    
+    
+    mvprintw(barisnya+4,kolomnya,"Masukkan bilangan: ");
+    scanw("%d",&bilangan1);
+    if (apakah_prima(bilangan1)==0)
+    {
+    mvprintw(barisnya+6,kolomnya,"Bilangan: %d bukan bilangan prima",bilangan1);
+    }
+    else
+    {
+    mvprintw(barisnya+6,kolomnya,"Bilangan: %d adalah bilangan prima",bilangan1);
+    }
+        
+    getch();
+    
+    return 0;
+}
+
+
 // harus ada fungsi main()
 int main(){
 
@@ -93,6 +147,9 @@ int main(){
                     
                     case 1 : MenjumlahBilangan(baris,kolom);
                              break;
+                    case 5 : MenuPrima(baris,kolom);
+                             break;
+                    
                     
                 }
                     
