@@ -57,7 +57,7 @@ mvprintw(12,30,"Setelah Dibalik Menjadi : &d",hasil);
  // karena int main, jadi hasilnya adalah bilangan bulat
  // salah satunya 0
  return 0;
- 
+
 }
   
 
