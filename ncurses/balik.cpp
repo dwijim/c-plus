@@ -39,7 +39,7 @@ scanw("%d",&bilangan);
 // menghitung nilai satuan 
 satuan   = bilangan % 10;
 
-// menghitung nilai puluhsan
+// menghitung nilai puluhan
 puluhan  = ((bilangan-satuan)%100) / 10;
 
 // menghitung nilai ratusan
@@ -49,13 +49,15 @@ ratusan  = (bilangan-((puluhan*10)+satuan)) / 100;
 hasil    = (satuan*100)+(10*puluhan)+ratusan;
 
 // mencetak hasil
-cout<<"Setelah Dibalik Menjadi : "<< hasil;
+mvprintw(12,30,"Setelah Dibalik Menjadi : &d",hasil);
  
+//menahan tampilan agar dapat dilihat terlebih dahulu
+  getch();
+  
  // karena int main, jadi hasilnya adalah bilangan bulat
  // salah satunya 0
  return 0;
  
 }
   
-
 
