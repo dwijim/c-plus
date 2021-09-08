@@ -49,15 +49,19 @@ ratusan  = (bilangan-((puluhan*10)+satuan)) / 100;
 hasil    = (satuan*100)+(10*puluhan)+ratusan;
 
 // mencetak hasil
-mvprintw(12,30,"Setelah Dibalik Menjadi : &d",hasil);
+mvprintw(12,30,"Setelah Dibalik Menjadi : %d",hasil);
  
 //menahan tampilan agar dapat dilihat terlebih dahulu
   getch();
   
  // karena int main, jadi hasilnya adalah bilangan bulat
  // salah satunya 0
+  
+  curs_set(1);
+  
+  // akhir fungsi integer mengembalikan suatu nilai
  return 0;
-
+ 
 }
   
 
