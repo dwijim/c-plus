@@ -30,16 +30,17 @@ int main()
    
    // menyembunyikan tampilan kursor
    curs_set(1);
-
+kolom = 25;
+  
     // menampilkan tulisan
-    mvprintw(barisnya+0,kolomnya,"Kemampuan Dasar Komputer");
-    mvprintw(barisnya+2,kolomnya,"*** Melakukan Perulangan ***");
+    mvprintw(5,kolom,"Kemampuan Dasar Komputer");
+    mvprintw(6,kolom,"*** Melakukan Perulangan ***");
     
     
-    mvprintw(barisnya+4,kolomnya,"Masukkan banyaknya perulangan: ");
+    mvprintw(8,kolom,"Masukkan banyaknya perulangan: ");
     scanw("%d",&bilangan1);
  
-    for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
+    for (bilangan2=10;bilangan2<=bilangan1;bilangan2++)
      {
     mvprintw(bilangan2,25,"Ilkom Unila");
 
