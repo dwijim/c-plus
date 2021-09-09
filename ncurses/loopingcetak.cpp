@@ -1,12 +1,12 @@
 /* ---------------------------------------------
  * program untuk menunjukkan kemampuan dasar
- * dari komputer
+ * dari komputer melakukan perulangan
  * dibuat oleh dwi sakethi:
- * - 27 agustus 2021
+ * - 9 september 2021
  * 
  * 
- * file ini disimpan dengan nama kemampuandasar.cpp
- * compile g++ kemampuandasar.cpp -o kemampuandasar -l ncurses
+ * file ini disimpan dengan nama loopingcetak.cpp
+ * compile g++ loopingcetak.cpp -o cetak -l ncurses
  * 
  * --------------------------------------------- */
 
