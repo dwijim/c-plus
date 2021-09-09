@@ -47,10 +47,13 @@ int main()
     // memasukkan bilangan dengan tipe integer
     scanw("%d",&bilangan1);
  
+    // looping dari 1 sampai ke nilai bilangan
     for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
      {
-    mvprintw(bilangan2+10,25,"Ilkom Unila");
-
+        // mencetak pada baris yang bertambah
+        // supaya tulisan tambah ke bawah
+        mvprintw(bilangan2+10,25,"Ilkom Unila");
+ 
      }    
     
     // menahan tampilan di layar, supaya dapat dilihat dulu
