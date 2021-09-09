@@ -28,18 +28,23 @@ int main()
    short int baris, kolom;
    short int bilangan2, bilangan1;
    
+   // mengawali layar untuk mode ncurses
   initscr();
   
-   // menyembunyikan tampilan kursor
+   // menampilkan tampilan kursor
    curs_set(1);
-kolom = 25;
+
+   // menentukan posisi kolom
+   kolom = 25;
   
     // menampilkan tulisan
     mvprintw(5,kolom,"Kemampuan Dasar Komputer");
     mvprintw(6,kolom,"*** Melakukan Perulangan ***");
     
-    
+    // menampilkan tulisa
     mvprintw(8,kolom,"Masukkan banyaknya perulangan: ");
+
+    // memasukkan bilangan dengan tipe integer
     scanw("%d",&bilangan1);
  
     for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
@@ -48,6 +53,7 @@ kolom = 25;
 
      }    
     
+    // menahan tampilan di layar, supaya dapat dilihat dulu
     getch();
     
 
