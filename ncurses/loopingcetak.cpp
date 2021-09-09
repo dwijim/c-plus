@@ -8,36 +8,32 @@
  * file ini disimpan dengan nama loopingcetak.cpp
  * compile g++ loopingcetak.cpp -o cetak -l ncurses
  * 
+ * dijalankan dengan perintah: ./cetak
  * --------------------------------------------- */
 
-#include "iostream"
+// karena menggunakan library ncurses
 #include "ncurses.h"
-#include "string.h"
 
+// karena ada fungsi input dan output
+#include <iostream>
+
+// untuk menyingkat penulisan tapi sebenarnya ...
 using namespace std;
 
-
-
-
-// harus ada fungsi main()
-int main(){
-
+// program dalam bahasa C++ harus ada fungsi main()
+int main()
+{
+ 
    // deklarasi variabel
-   int tombol;
-   short int baris, kolom, pilihan;
+   short int baris, kolom;
+   short int bilangan2, bilangan1;
    
-   // memberi posisi baris di bagian bawah
-   baris = baris_bawah;
-
-   // meletakkan posisi awal di tengah kolom layar
-   kolom = kolom_tengah;
-
    // menyembunyikan tampilan kursor
    curs_set(1);
 
     // menampilkan tulisan
     mvprintw(barisnya+0,kolomnya,"Kemampuan Dasar Komputer");
-    mvprintw(barisnya+2,kolomnya,"4. Melakukan Perulangan");
+    mvprintw(barisnya+2,kolomnya,"*** Melakukan Perulangan ***");
     
     
     mvprintw(barisnya+4,kolomnya,"Masukkan banyaknya perulangan: ");
