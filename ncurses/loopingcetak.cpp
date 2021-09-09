@@ -46,7 +46,6 @@ kolom = 25;
      {
     mvprintw(bilangan2+10,25,"Ilkom Unila");
 
-
      }    
     
     getch();
