@@ -41,7 +41,7 @@ int main()
  
     for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
      {
-    mvprintw(barisnya+6+bilangan2,kolomnya,"Ilkom Unila \n");
+    mvprintw(bilangan2,25,"Ilkom Unila");
 
 
      }    
