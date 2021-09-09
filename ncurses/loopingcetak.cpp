@@ -28,6 +28,8 @@ int main()
    short int baris, kolom;
    short int bilangan2, bilangan1;
    
+  initscr();
+  
    // menyembunyikan tampilan kursor
    curs_set(1);
 kolom = 25;
@@ -40,9 +42,9 @@ kolom = 25;
     mvprintw(8,kolom,"Masukkan banyaknya perulangan: ");
     scanw("%d",&bilangan1);
  
-    for (bilangan2=10;bilangan2<=bilangan1;bilangan2++)
+    for (bilangan2=1;bilangan2<=bilangan1;bilangan2++)
      {
-    mvprintw(bilangan2,25,"Ilkom Unila");
+    mvprintw(bilangan2+10,25,"Ilkom Unila");
 
 
      }    
