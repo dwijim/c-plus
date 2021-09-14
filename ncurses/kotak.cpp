@@ -76,7 +76,8 @@ void kotak(int baris11, int kolom11,int baris22,  int kolom22)
 
 int main(){
   
- 
+  int gerak;
+   
   //mengawali layar untuk ncurses
   initscr();
   
@@ -92,6 +93,15 @@ int main(){
   // menahan tampilan layar
   getch();
    
+     clear();
+  for (gerak=1;gerak<=40;gerak++)
+  {
+    
+    kotak(gerak,5,10+gerak,25);
+    getch();
+    clear();
+  }
+
   //mengakhiri layar ncurses
   endwin();
   
