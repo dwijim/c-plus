@@ -46,10 +46,12 @@ terbesar = -999;
 initscr();
 
 // menanyakan banyaknya data
-cout<<"Berapa banyaknya data: "; 
-cin>>BanyakData;
+mvprintw(1,3,"Berapa banyaknya data: ");
+scanw("%d",&BanyakData);
 
-  clear();
+// menghapus layar
+clear();
+
 // looping dari data pertama sampai terakhir
 for (DataKe=1; DataKe<=BanyakData; DataKe++)
 {
