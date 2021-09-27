@@ -1,4 +1,3 @@
-
 /* -----------------------------------
  * program untuk mencari bilangan terbesar
  * dari sekumpulan bilangan
@@ -6,7 +5,8 @@
  * nama file bilangan-terbesar.cpp
    dimodifikasi sesuai dengan penggunaan ncurses
    9 september 2021
-
+   27 september 2021 (ncurses)
+   
  * file ini disimpan dengan nama bilangan-terbesar.cpp
  * compile g++ bilangan-terbesar.cpp -o bilangan -l ncurses
  
@@ -49,18 +49,19 @@ initscr();
 cout<<"Berapa banyaknya data: "; 
 cin>>BanyakData;
 
+  clear();
 // looping dari data pertama sampai terakhir
 for (DataKe=1; DataKe<=BanyakData; DataKe++)
 {
    // memasukkan datanya 
-   cout<<"Sebutkan data ke- "<<DataKe<<" :";
-   cin>>bilangan;
+   mvprintw(DataKe,3,"Sebutkan data ke-%d ",DataKe);
+   scanw("%d",&bilangan);
    
    // membandingkan dua data dan
    // menyimpan data yang lebih besar
    if (bilangan>terbesar) terbesar=bilangan;
 }
-  cout<<"Bilangan terbesar :  "<<terbesar;
+   mvprintw(DataKe,3,"Bilangan terbesar adalah %d ",terbesar);
 
 // menahan tampilan di layar, supaya dapat dibaca
     getch();
