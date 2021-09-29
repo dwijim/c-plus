@@ -106,7 +106,7 @@ int main(){
   endwin();
   
   // hasil fungsi main() bertipe integer
-  return 11;
+  return 46;
 }
 
 
