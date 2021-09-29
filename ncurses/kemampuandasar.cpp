@@ -228,5 +228,5 @@ int main(){
    endwin();  
 
    // kembali ke program utama
-   return 0;
+   return -170;
 }
