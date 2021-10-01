@@ -6,6 +6,13 @@
    dibuat oleh dwi sakethi
    menggunakan g++ compiler dan pustaka ncurses
    - 30 september 2021 di studio foto
+   program ini diberi nama: tulsan ke atas.cpp
+   
+   di-compile dengan perintah:
+   g++ tulisan ke atas.cpp -o tulisan -l ncurses
+
+   dijalankan dengan perintah: tulisan
+
    ----------------------------------------- */
 
 // karena ada proses cetak ke layar dan
@@ -24,11 +31,11 @@
 // menggunakan fungsi-fungsi standar
 //#include<unistd.h>
 
-
+// untuk mempermudah penulisan program
 using namespace std;
 
 
-// fungsi utama di dalam bahasa C
+// fungsi utama di dalam bahasa C++
 int main ()
 {
   
@@ -49,15 +56,13 @@ short int kolom;
 // mendefinisikan posisi huruf
 short int panjang_kalimat;
 
-// mendefinisikan variabel untuk jeda
-// int waktu,waktu2;
-
 // mengawali mode ncurses
 initscr();
 
-// ini kalau di OS Linux
-//system("clear"); //clears the screen
+//clears the screen
 clear();
+
+//initcursor(0);
 
 // menghitung panjang kalimat
 // karena proses dilakukan dari huruf pertama
@@ -89,7 +94,7 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     mvprintw(baris,kolom,"%c",kalimat[huruf]);
 
     // menghentikan proses sampai ditekan suatu tombol
-    getchar();
+    getch();
   	
  }
 
