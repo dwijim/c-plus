@@ -99,8 +99,9 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     * ini gunanya untuk menghapus
     *------------------------------------------- */  
     
-    kiri = kiri + kalimat[huruf];
-
+    //kiri = kiri + kalimat[huruf];
+    kiri = kalimat.substr(1,huruf);
+   
     kanan = kanan+kalimat[panjang_kalimat+1-huruf];
 
    /* ------------------------------------------
