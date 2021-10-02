@@ -94,8 +94,8 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     mvprintw(baris,kolom,"%c",kalimat[huruf]);
 
     // menghentikan proses sampai ditekan suatu tombol
-    getch();
-  	
+    // getch();
+  	 napms(200); /* pause */
  }
 
 }
