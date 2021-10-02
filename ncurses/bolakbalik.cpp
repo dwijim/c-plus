@@ -110,6 +110,7 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     mvprintw(baris,kolom,"%s%s",kiri,kanan);
     mvprintw(20,1,"kiri: %s",kiri);
     mvprintw(21,1,"%s",kanan);
+    cout << kiri; 
 
     // menghentikan proses sampai ditekan suatu tombol
     getch();
