@@ -41,13 +41,16 @@ int main ()
   
 // mendefinisikan kalimat string 60 karakter
 // diberi spasi fungsinya untuk menghapus	
-string kalimat=" dwi sakethi ";
+// string kalimat=" dwi sakethi ";
+char kalimat[]=" dwi sakethi ";
 
 // kiri untuk tulisan sebelah kiri
-string kiri=" ";
+//string kiri=" ";
+char kiri[]=" ";
 
 // kanan untuk tulisan sebelah kanan
-string kanan=" ";
+//string kanan=" ";
+char kanan[]=" ";
 
 // char potongan;
 
@@ -109,7 +112,7 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     *------------------------------------------- */  
     mvprintw(baris,kolom,"%s%s",kiri,kanan);
     mvprintw(20,1,"kiri: %s",kiri);
-    mvprintw(21,1,"%s",kanan);
+    mvprintw(21,1,"kanan: %s",kanan);
     cout << kiri; 
 
     // menghentikan proses sampai ditekan suatu tombol
