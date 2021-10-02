@@ -1,4 +1,4 @@
-#define jumlah_data 5
+
 
 // karena ada proses cetak ke layar dan
 // pemasukan data via keyboard
@@ -39,10 +39,11 @@ using namespace std;
 // yaitu fungsi main()
 int main(){
   
-  float nilai_akhir[jumlah_data];
-  
-  int data_ke;
-  
+    // deklarasi variabel
+    float nilai_akhir[jumlah_data];
+    short int jumlah_data;
+    short int data_ke;
+    int bilangan;
   //mengawali layar untuk ncurses
   initscr();
   
