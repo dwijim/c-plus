@@ -33,8 +33,11 @@
 // menggunakan fungsi-fungsi string
 #include<cstring>
 
-// menggunakan fungsi-fungsi standar
-//#include<unistd.h>
+// menggunakan fungsi untuk delay
+#include<unistd.h>
+
+#include <chrono>
+#include <thread>
 
 // untuk mempermudah penulisan program
 using namespace std;
@@ -74,6 +77,8 @@ short int panjang_kalimat;
 // mendefinisikan variabel untuk looping
 short int perulangan;
 
+  long int berhenti;
+  
 // mengawali mode ncurses
 initscr();
 
@@ -121,12 +126,12 @@ for (huruf=0;huruf<perulangan;huruf++)
     mvprintw(baris,kolom,"%s%s",kiri.c_str(),kanan.c_str());
     mvprintw(20,1,"kiri: %s",kiri.c_str());
     mvprintw(21,1,"kanan: %s",kanan.c_str());
-    //cout << kiri;
 
-    // menghentikan proses sampai ditekan suatu tombol
-    getch();
+    // menghentikan proses selama 1 detik
+    refresh(); sleep(1);  
 }
 
+    refresh(); sleep(5);  
 // menutup mode ncurses
 endwin();
 
