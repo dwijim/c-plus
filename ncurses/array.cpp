@@ -1,7 +1,3 @@
-
-
-
-
 #define jumlah_data 5
 
 // karena ada proses cetak ke layar dan
