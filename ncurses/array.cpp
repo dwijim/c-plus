@@ -11,6 +11,9 @@
 
    ------------------------------- */
 
+// menentukan batas banyaknya data
+#define jumlah_data_maksimal 100
+
 // ini karena menggunakan pustaka ncurses
 #include "ncurses.h"
 
@@ -26,7 +29,7 @@ using namespace std;
 int main(){
   
     // deklarasi variabel
-    float bilangan[jumlah_data];
+    float bilangan[jumlah_data_maksimal];
     short int jumlah_data;
     short int data_ke;
 
@@ -36,10 +39,17 @@ int main(){
   // membersihkan layar
   clear();
   
-  for (data_ke=0;data_ke<jumlah_data;data_ke++)
+    // memasukkan suatu nilai
+    mvprintw(data_ke+1,10,"Masukan banyaknya bilangan: ");
+    scanw("%d",&jumlah_data);
+  
+  // membersihkan layar
+  clear();
+  
+    for (data_ke=0;data_ke<jumlah_data;data_ke++)
    {
     // memasukkan suatu nilai
-    mvprintw(data_ke+1,10,"Masukan bilangan: %d",data_ke+1);
+    mvprintw(data_ke+1,10,"Masukan bilangan ke-%d: ",data_ke+1);
     scanw("%d",&bilangan[data_ke]);
    }
   
@@ -53,9 +63,3 @@ int main(){
   // hasil fungsi main() bertipe integer
   return 11;
 }
-
-
-
-
-
-
