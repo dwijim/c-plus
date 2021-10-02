@@ -44,10 +44,10 @@ int main ()
 string kalimat=" dwi sakethi ";
 
 // kiri untuk tulisan sebelah kiri
-string kiri="";
+string kiri=" ";
 
 // kanan untuk tulisan sebelah kanan
-string kanan="";
+string kanan=" ";
 
 // char potongan;
 
@@ -88,11 +88,10 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
 {
     // menentukan posisi kolom
     kolom=40-huruf;
-    
+
     // dari baris paling bawah (23) ke baris atas (3)
-    // potongan=substr(kalimat,huruf-1,1);  
- 
-   
+    // potongan=substr(kalimat,huruf-1,1);
+
     /* ------------------------------------------
     * pada posisi baris sebelumnya yang makin berkurang
     * (baris+1)dan kolom tetap, cetak spasi
@@ -100,7 +99,7 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     *------------------------------------------- */  
     
     //kiri = kiri + kalimat[huruf];
-    kiri = kalimat.substr(1,huruf);
+    kiri = kalimat.substr(0,huruf+1);
    
     kanan = kanan+kalimat[panjang_kalimat+1-huruf];
 
@@ -109,7 +108,7 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     * cetak karakter saat ini
     *------------------------------------------- */  
     mvprintw(baris,kolom,"%s%s",kiri,kanan);
-    mvprintw(20,1,"%s",kiri);
+    mvprintw(20,1,"kiri: %s",kiri);
     mvprintw(21,1,"%s",kanan);
 
     // menghentikan proses sampai ditekan suatu tombol
