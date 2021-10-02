@@ -44,7 +44,7 @@ int main ()
   
 // mendefinisikan kalimat string 60 karakter
 // diberi spasi fungsinya untuk menghapus	
- string kalimat=" dwi sakethi ";
+ string kalimat=" dwi sakethi ilmu komputer unila ";
 //char kalimat[]=" dwi sakethi ";
 
 // kiri untuk tulisan sebelah kiri
@@ -86,12 +86,12 @@ panjang_kalimat = kalimat.length();
 //panjang_kalimat = strlen(kalimat);
 
 // dibagi dua karena ada potongan kanan dan kiri
-perulangan = panjang_kalimat/2;
+perulangan = (panjang_kalimat/2)+1;
 
 baris = 12; 
 
 // looping dari huruf pertama-huruf terakhir
-for (huruf=0;huruf<panjang_kalimat;huruf++)
+for (huruf=0;huruf<perulangan;huruf++)
 {
     // menentukan posisi kolom
     kolom=40-huruf;
@@ -110,7 +110,7 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     //kiri = kalimat.substr(0,huruf+1);
     //strcat(kiri,kalimat[huruf]);
    
-    //kanan = kanan+kalimat[panjang_kalimat+1-huruf];
+    kanan = kalimat[panjang_kalimat-1-huruf]+kanan;
 
    /* ------------------------------------------
     * pada posisi sekarang (baris), 
@@ -118,8 +118,8 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     *------------------------------------------- */  
     mvprintw(baris,kolom,"%s%s",kiri.c_str(),kanan.c_str());
     mvprintw(20,1,"kiri: %s",kiri.c_str());
-    mvprintw(21,1,"kanan: %s",kanan);
-    //cout << kiri; 
+    mvprintw(21,1,"kanan: %s",kanan.c_str());
+    //cout << kiri;
 
     // menghentikan proses sampai ditekan suatu tombol
     getch();
