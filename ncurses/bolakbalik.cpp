@@ -28,6 +28,9 @@
 // menggunakan fungsi-fungsi string
 #include<string>
 
+// menggunakan fungsi-fungsi string
+#include<cstring>
+
 // menggunakan fungsi-fungsi standar
 //#include<unistd.h>
 
@@ -41,16 +44,16 @@ int main ()
   
 // mendefinisikan kalimat string 60 karakter
 // diberi spasi fungsinya untuk menghapus	
-// string kalimat=" dwi sakethi ";
-char kalimat[]=" dwi sakethi ";
+ string kalimat=" dwi sakethi ";
+//char kalimat[]=" dwi sakethi ";
 
 // kiri untuk tulisan sebelah kiri
-//string kiri=" ";
-char kiri[]=" ";
+string kiri=" ";
+//char kiri[]=" ";
 
 // kanan untuk tulisan sebelah kanan
-//string kanan=" ";
-char kanan[]=" ";
+string kanan=" ";
+//char kanan[]=" ";
 
 // char potongan;
 
@@ -80,11 +83,12 @@ clear();
 
 // menghitung panjang kalimat
 panjang_kalimat = kalimat.length();
+//panjang_kalimat = strlen(kalimat);
 
 // dibagi dua karena ada potongan kanan dan kiri
 perulangan = panjang_kalimat/2;
 
-baris = 12;
+baris = 12; 
 
 // looping dari huruf pertama-huruf terakhir
 for (huruf=0;huruf<panjang_kalimat;huruf++)
@@ -101,19 +105,21 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
     * ini gunanya untuk menghapus
     *------------------------------------------- */  
     
-    //kiri = kiri + kalimat[huruf];
-    kiri = kalimat.substr(0,huruf+1);
+    kiri = kiri + kalimat[huruf];
+    //kiri += kalimat[huruf];
+    //kiri = kalimat.substr(0,huruf+1);
+    //strcat(kiri,kalimat[huruf]);
    
-    kanan = kanan+kalimat[panjang_kalimat+1-huruf];
+    //kanan = kanan+kalimat[panjang_kalimat+1-huruf];
 
    /* ------------------------------------------
     * pada posisi sekarang (baris), 
     * cetak karakter saat ini
     *------------------------------------------- */  
-    mvprintw(baris,kolom,"%s%s",kiri,kanan);
-    mvprintw(20,1,"kiri: %s",kiri);
+    mvprintw(baris,kolom,"%s%s",kiri.c_str(),kanan.c_str());
+    mvprintw(20,1,"kiri: %s",kiri.c_str());
     mvprintw(21,1,"kanan: %s",kanan);
-    cout << kiri; 
+    //cout << kiri; 
 
     // menghentikan proses sampai ditekan suatu tombol
     getch();
