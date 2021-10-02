@@ -6,6 +6,8 @@
    dibuat oleh dwi sakethi
    menggunakan g++ compiler dan pustaka ncurses
    - 30 september 2021 di studio foto
+   - 2 oktober 2021 alhamdulillah jadi juga
+   
    program ini diberi nama: bolakbalik.cpp
    
    di-compile dengan perintah:
