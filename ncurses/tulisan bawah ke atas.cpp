@@ -74,28 +74,28 @@ for (huruf=0;huruf<panjang_kalimat;huruf++)
 {
     // menentukan posisi kolom
     kolom=15+huruf;
-    
+
     // dari baris paling bawah (23) ke baris atas (3)
-    // potongan=substr(kalimat,huruf-1,1);  
+    // potongan=substr(kalimat,huruf-1,1);
  for (baris=23;baris>=3;baris--)
  {
- 
+
    /* ------------------------------------------
     * pada posisi baris sebelumnya yang makin berkurang
     * (baris+1)dan kolom tetap, cetak spasi
     * ini gunanya untuk menghapus
-    *------------------------------------------- */  
+    *------------------------------------------- */
     mvprintw(baris+1,kolom," ");
-    
+
    /* ------------------------------------------
     * pada posisi sekarang (baris), 
     * cetak karakter saat ini
-    *------------------------------------------- */  
+    *------------------------------------------- */
     mvprintw(baris,kolom,"%c",kalimat[huruf]);
 
     // menghentikan proses sampai ditekan suatu tombol
-    // getch();
-  	 napms(200); /* pause */
+      getch();
+    //napms(500);
  }
 
 }
