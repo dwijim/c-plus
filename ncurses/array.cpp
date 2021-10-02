@@ -9,14 +9,6 @@ using namespace std;
 
 int main()
 {
-  float nilai_akhir[jumlah_data];
-  
-  int data_ke;
-  
-  for (data_ke=0;data_ke<jumlah_data;data_ke++)
-   {
-     cout << "Masukkan data ke-"<<data_ke+1;
-   }
 
   return 1;
 }
@@ -43,10 +35,13 @@ int main()
 // supaya menyingkat penulisan
 using namespace std;
 
-
+// program dalam bahasa C++ terdiri paling tidak atas satu fungsi
+// yaitu fungsi main()
 int main(){
   
-  int bilangan;
+  float nilai_akhir[jumlah_data];
+  
+  int data_ke;
   
   //mengawali layar untuk ncurses
   initscr();
@@ -54,12 +49,14 @@ int main(){
   // membersihkan layar
   clear();
   
-  // menampilkan tulisan di layar pada posisi 5,10
-  mvprintw(5,10,"Jurusan Ilmu Komputer");
+  for (data_ke=0;data_ke<jumlah_data;data_ke++)
+   {
+    // memasukkan suatu nilai
+    mvprintw(7,10,"Masukan suatu bilangan: ");
+    scanw("%d",&bilangan);
+     cout << "Masukkan data ke-"<<data_ke+1;
+   }
   
-  // memasukkan suatu nilai
-  mvprintw(7,10,"Masukan suatu bilangan: ");
-  scanw("%d",&bilangan);
   
   // menahan tampilan layar
   getch();
