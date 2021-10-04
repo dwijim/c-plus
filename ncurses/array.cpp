@@ -30,6 +30,9 @@ int main(){
   
     // deklarasi variabel
     float bilangan[jumlah_data_maksimal];
+
+    // float bilangan[100];
+
     short int jumlah_data;
     short int data_ke;
 
@@ -50,7 +53,7 @@ int main(){
    {
     // memasukkan suatu nilai
     mvprintw(data_ke+1,10,"Masukan bilangan ke-%d: ",data_ke+1);
-    scanw("%d",&bilangan[data_ke]);
+    scanw("%f",&bilangan[data_ke]);
    }
   
   
