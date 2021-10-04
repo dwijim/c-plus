@@ -1,5 +1,5 @@
 /* -------------------------------
-   contoh format dasar program C++
+   contoh format dasar program C++ 
    dengan menggunakan pustaka ncurses
    nama file: array.cpp
    dicompile dengan perintah:
@@ -32,10 +32,11 @@ int main(){
     float bilangan01,bilangan02,bilangan03,bilangan04,bilangan05;
     float bilangan06,bilangan07,bilangan08,bilangan09,bilangan10;
     short int jumlah_data;
+    float jumlah;
     short int data_ke;
 
   //mengawali layar untuk ncurses
-  initscr();
+  initscr(); 
   
   // membersihkan layar
   clear();
@@ -62,8 +63,8 @@ int main(){
     scanw("%f",&bilangan03);
   clear();
   
-   jumlah_data = bilangan01+bilangan02+bilangan03+bilangan04+bilangan05;
-    mvprintw(1,10,"Jumlah bilangan %f",jumlah_data);
+   jumlah = bilangan01+bilangan02+bilangan03;
+    mvprintw(1,10,"Jumlah bilangan %f",jumlah);
   
   
   // menahan tampilan layar
