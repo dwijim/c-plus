@@ -8,7 +8,7 @@
    program ini ditulis di cocalc.com
    pada tanggal: 12 september 2021
                   2 oktober 2021
-
+<sup></sup><sup></sup>
    ------------------------------- */
 
 // menentukan batas banyaknya data
@@ -42,25 +42,28 @@ int main(){
   
     // memasukkan suatu nilai
     mvprintw(data_ke+1,10,"Masukan banyaknya bilangan: ");
-    scanw("%d",&jumlah_data);
+    scanw("%f",&jumlah_data);
   
   // membersihkan layar
   clear();
   
     // memasukkan suatu nilai bilangan01
     mvprintw(1,10,"Masukan bilangan ke-1: ");
-    scanw("%d",&bilangan01);
+    scanw("%f",&bilangan01);
   clear();
   
     // memasukkan suatu nilai bilangan02
     mvprintw(1,10,"Masukan bilangan ke-2: ");
-    scanw("%d",&bilangan02);
+    scanw("%f",&bilangan02);
   clear();
   
     // memasukkan suatu nilai bilangan03
     mvprintw(1,10,"Masukan bilangan ke-3: ");
     scanw("%f",&bilangan03);
   clear();
+  
+   jumlah_data = bilangan01+bilangan02+bilangan03+bilangan04+bilangan05;
+    mvprintw(1,10,"Jumlah bilangan %f",jumlah_data);
   
   
   // menahan tampilan layar
