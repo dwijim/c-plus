@@ -33,7 +33,7 @@ int main(){
 
     // float bilangan[100];
 
-    short int jumlah_data;
+    float jumlah_data;
     short int data_ke;
 
   //mengawali layar untuk ncurses
@@ -49,13 +49,19 @@ int main(){
   // membersihkan layar
   clear();
   
+  jumlah = 0;
     for (data_ke=0;data_ke<jumlah_data;data_ke++)
    {
     // memasukkan suatu nilai
     mvprintw(data_ke+1,10,"Masukan bilangan ke-%d: ",data_ke+1);
     scanw("%f",&bilangan[data_ke]);
+    
+      // jumlah data
+      jumlah = jumlah + bilangan[data_ke];
    }
-  
+
+    mvprintw(data_ke+1,10,"Jumlah : %f",jumlah);
+
   
   // menahan tampilan layar
   getch();
