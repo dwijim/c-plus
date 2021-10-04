@@ -50,14 +50,17 @@ int main(){
     // memasukkan suatu nilai bilangan01
     mvprintw(1,10,"Masukan bilangan ke-1: ");
     scanw("%d",&bilangan01);
+  clear();
   
     // memasukkan suatu nilai bilangan02
     mvprintw(1,10,"Masukan bilangan ke-2: ");
     scanw("%d",&bilangan02);
+  clear();
   
     // memasukkan suatu nilai bilangan03
     mvprintw(1,10,"Masukan bilangan ke-3: ");
     scanw("%f",&bilangan03);
+  clear();
   
   
   // menahan tampilan layar
