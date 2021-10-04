@@ -44,13 +44,13 @@ int main(){
   clear();
   
     // memasukkan suatu nilai
-    mvprintw(data_ke+1,10,"Masukan banyaknya bilangan: ");
+    mvprintw(1,10,"Masukan banyaknya bilangan: ");
     scanw("%d",&jumlah_data);
   
   // membersihkan layar
   clear();
   
-  jumlah_data = 0;
+  jumlah = 0;
     for (data_ke=0;data_ke<jumlah_data;data_ke++)
    {
     // memasukkan suatu nilai
@@ -61,7 +61,7 @@ int main(){
       jumlah = jumlah + bilangan[data_ke];
    }
 
-    mvprintw(data_ke+1,10,"Jumlah : %d",jumlah);
+    mvprintw(data_ke+1,10,"Jumlah : %f",jumlah);
 
   
   // menahan tampilan layar
