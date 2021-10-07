@@ -42,6 +42,8 @@ int main(){
   
   int bilangan;
   
+  short int hasil_pembandingan;
+  
   string kata[banyaknya_kata];
   string kata_apa;
   
@@ -62,22 +64,28 @@ int main(){
   
   // memasukkan suatu nilai
   mvprintw(7,10,"Masukan suatu kata: ");
-  scanw("%s",&kata_apa);
-  
-  // membersihkan layar
+  //scanw("%s",&kata_apa);
+  kata_apa = "gila";
+  //kata_apa = kata_apa+"\n";
+  // membersihkan layar 
   clear();
-  
-  for (bilangan=1;bilangan<=banyaknya_kata;bilangan++)
+
+  for (bilangan=0;bilangan<banyaknya_kata;bilangan++)
   {
-     mvprintw(bilangan,3,"Kata : %s",kata[bilangan-1].c_str());   
-/*
-      if (kata_apa.c_str() == kata[bilangan-1].c_str())
+     mvprintw(bilangan,3,"Tabel Kata : %s vs %s",kata[bilangan].c_str(),kata_apa.c_str());
+     hasil_pembandingan = kata_apa.compare(kata[bilangan]);
+      if (hasil_pembandingan == 0)
      {
-       mvprintw(20,10,"Kata Anda kena sensor ...");       
+       mvprintw(20,10,"Kata Anda kena sensor ...");
      }
-*/
-      
+/*
+else
+     {
+      // mvprintw(20,10,"Kata Anda tidak kena sensor ...");
+     }
+      */
 }
+     mvprintw(bilangan,3,"Selesai");
   // menahan tampilan layar
   getch();
   clear();
