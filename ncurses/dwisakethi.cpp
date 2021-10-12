@@ -49,15 +49,15 @@ int main ()
   
 // mendefinisikan kalimat string 60 karakter
 // diberi spasi fungsinya untuk menghapus	
- string kalimat01="  wi sakethi ilmu komputer unila ";
- string kalimat02="  wi sakethi ilmu komputer unila ";
- string kalimat03="  wi sakethi ilmu komputer unila ";
- string kalimat04="  wi sakethi ilmu komputer unila ";
- string kalimat05=" dwi sakethi ilmu komputer unila ";
- string kalimat06=" dwi sakethi ilmu komputer unila ";
- string kalimat07=" dwi sakethi ilmu komputer unila ";
- string kalimat08=" dwi sakethi ilmu komputer unila ";
- string kalimat09=" dwi sakethi ilmu komputer unila ";
+ string kalimat01="     #                 #               ";
+ string kalimat02="     #                                 ";
+ string kalimat03="     #            #    #  #            ";
+ string kalimat04="     #                 #               ";
+ string kalimat05="  #### #        # #    #  #   #######  ";
+ string kalimat06=" #   #  #      #  #    #  #   #  #  #  ";
+ string kalimat07=" #   #   #    #   #    #  #   #  #  #  ";
+ string kalimat08=" #   #    ####    #    #  #   #  #  #  ";
+ string kalimat09="  ###      # #   ### ##  ### ###   ### ";
 //char kalimat[]=" dwi sakethi ";
 
 // kiri untuk tulisan sebelah kiri
