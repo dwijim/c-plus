@@ -69,7 +69,7 @@ for (DataKe=1; DataKe<=BanyakData; DataKe++)
     getch();
 
    // menutup layar mode ncurses
-   endwin();  
+   endwin();       
 
   // karena int main() jadi bisa return 11
   return 11;
