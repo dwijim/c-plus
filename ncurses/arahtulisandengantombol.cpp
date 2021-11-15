@@ -2,6 +2,7 @@
  * program untuk mendeteksi tombol yang ditekan
  * kemudian menggeser tulisan ke kiri atau ke kanan
  * sesuai dengan tombol panah yang ditekan
+ * untuk keluar dari program, tekan tombol ESC
  * dibuat oleh dwi sakethi:
  * - 4 juli 2021
  * - 5 juli 2021
@@ -90,6 +91,31 @@ int main(){
                   // jika sudah mentok ke kanan, kolom tetap 75
                   if (kolom==75) kolom=75;
                 }  
+             else if(tombol == KEY_UP)
+                { 
+                  
+                  // di tempat lama, dihapus dengan mencetak spasi
+                  mvprintw(baris,kolom,"     ");
+
+                  // bergerak ke atas, jadi baris berkurang
+                  baris = baris - 1;
+
+                  // jika sudah mentok ke atas, baris tetap 5
+                  if (baris==5) baris=5;
+                }  
+             else if(tombol == KEY_DOWN)
+                { 
+                  
+                  // di tempat lama, dihapus dengan mencetak spasi
+                  mvprintw(baris,kolom,"     ");
+
+                  // bergerak ke atas, jadi baris berkurang
+                  baris = baris + 1;
+
+                  // jika sudah mentok ke atas, baris tetap 5
+                  if (baris==baris_bawah) baris=baris_bawah;
+                }  
+
 
                 // cetak sesuatu sesuai dengan baris dan kolom
                 // di kanan dan kiri diberi spasi
