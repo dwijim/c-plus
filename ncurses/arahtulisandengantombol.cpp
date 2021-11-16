@@ -7,6 +7,7 @@
  * - 4 juli 2021
  * - 5 juli 2021
  * - 14 november 2021
+ * - 16 november 2021
  * 
  * untuk mengkompilasi dan menjalankan program ini
  * sudah dicoba di Linux yang sudah dipasang
