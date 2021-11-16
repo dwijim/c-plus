@@ -8,6 +8,12 @@
  * - 5 juli 2021
  * - 14 november 2021
  * 
+ * untuk mengkompilasi dan menjalankan program ini
+ * sudah dicoba di Linux yang sudah dipasang
+ * g++ compiler dan ncurses
+ * serta dapat juga dikompilasi dan dijalankan
+ * secara online di https://cocalc.com/
+ *
  * file ini disimpan dengan nama tombol.cpp
  * compile g++ tombol.cpp -o tombol -l ncurses
  * 
