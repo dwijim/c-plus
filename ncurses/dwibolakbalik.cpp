@@ -196,18 +196,12 @@ for (huruf=0;huruf<perulangan;huruf++)
     refresh(); sleep(1);  
 }
 
-pengurang = 0;
+penambah = 0;
   
 // ini bagian tulisan yang bergerak ke dalam 
 // looping dari setengah tulisan sampai dengan satu
 for (huruf=perulangan;huruf>1;huruf--)
 {
-    // variabel untuk menggeser posisi ke kanan
-    penambah = penambah + 1;
-  
-    // posisi kolom makin geser ke kanan
-    kolom = kolom + penambah;
-    
     // dari baris paling bawah (23) ke baris atas (3)
     // potongan=substr(kalimat,huruf-1,1);
 
@@ -228,8 +222,6 @@ for (huruf=perulangan;huruf>1;huruf--)
     kiri09 = kalimat09.substr(0,huruf);
     kiri10 = kalimat10.substr(0,huruf);
     kiri11 = kalimat11.substr(0,huruf);
-    //kiri = kalimat.substr(0,huruf+1);
-    //strcat(kiri,kalimat[huruf]);
    
     kanan01 = kalimat01.substr(perulangan+penambah,huruf);
     kanan02 = kalimat02.substr(perulangan+penambah,huruf);
@@ -245,7 +237,7 @@ for (huruf=perulangan;huruf>1;huruf--)
 
    /* ------------------------------------------
     * pada posisi sekarang (baris), 
-    * cetak karakter saat ini
+    * cetak karakter saat ini 
     *------------------------------------------- */  
     mvprintw(baris+1,kolom,"%s%s",kiri01.c_str(),kanan01.c_str());
     mvprintw(baris+2,kolom,"%s%s",kiri02.c_str(),kanan02.c_str());
@@ -258,18 +250,17 @@ for (huruf=perulangan;huruf>1;huruf--)
     mvprintw(baris+9,kolom,"%s%s",kiri09.c_str(),kanan09.c_str());
     mvprintw(baris+10,kolom,"%s%s",kiri10.c_str(),kanan10.c_str());
     mvprintw(baris+11,kolom,"%s%s",kiri11.c_str(),kanan11.c_str());
-    //mvprintw(20,1,"kiri: %s",kiri.c_str());
-    //mvprintw(21,1,"kanan: %s",kanan.c_str());
 
+    // variabel untuk menggeser posisi ke kanan
+    penambah = penambah + 1;
+  
+    // posisi kolom makin geser ke kanan
+    kolom = kolom + 1;
+    
     // menghentikan proses selama 1 detik
     refresh(); sleep(1);  
 }
 
-// looping dari huruf pertama-huruf terakhir
-for (huruf=perulangan;huruf=1;huruf--)
-{
-
-}    refresh(); sleep(5);  
 // menutup mode ncurses
 endwin();
 
