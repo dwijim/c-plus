@@ -7,11 +7,12 @@
    menggunakan g++ compiler dan pustaka ncurses
    - 30 september 2021 di studio foto
    - 2 oktober 2021 alhamdulillah jadi juga
+   - 20 november 2021 di bandung
    
-   program ini diberi nama: bolakbalik.cpp
+   program ini diberi nama: dwibolakbalik.cpp
    
    di-compile dengan perintah:
-   g++ bolakbalik.cpp -o tulisan -l ncurses
+   g++ dwibolakbalik.cpp -o tulisan -l ncurses
 
    dijalankan dengan perintah: tulisan
 
@@ -108,6 +109,9 @@ short int panjang_kalimat;
 // mendefinisikan variabel untuk looping
 short int perulangan;
 
+// variabel untuk penambah posisi
+  short int penambah;
+  
   long int berhenti;
   
 // mengawali mode ncurses
@@ -192,12 +196,18 @@ for (huruf=0;huruf<perulangan;huruf++)
     refresh(); sleep(1);  
 }
 
+pengurang = 0;
+  
 // ini bagian tulisan yang bergerak ke dalam 
 // looping dari setengah tulisan sampai dengan satu
 for (huruf=perulangan;huruf>1;huruf--)
 {
-    // menentukan posisi kolom
-
+    // variabel untuk menggeser posisi ke kanan
+    penambah = penambah + 1;
+  
+    // posisi kolom makin geser ke kanan
+    kolom = kolom + penambah;
+    
     // dari baris paling bawah (23) ke baris atas (3)
     // potongan=substr(kalimat,huruf-1,1);
 
@@ -221,17 +231,17 @@ for (huruf=perulangan;huruf>1;huruf--)
     //kiri = kalimat.substr(0,huruf+1);
     //strcat(kiri,kalimat[huruf]);
    
-    kanan01 = kalimat01.substr(perulangan+,huruf);
-    kanan02 = kalimat02[panjang_kalimat-1-huruf]+kanan02;
-    kanan03 = kalimat03[panjang_kalimat-1-huruf]+kanan03;
-    kanan04 = kalimat04[panjang_kalimat-1-huruf]+kanan04;
-    kanan05 = kalimat05[panjang_kalimat-1-huruf]+kanan05;
-    kanan06 = kalimat06[panjang_kalimat-1-huruf]+kanan06;
-    kanan07 = kalimat07[panjang_kalimat-1-huruf]+kanan07;
-    kanan08 = kalimat08[panjang_kalimat-1-huruf]+kanan08;
-    kanan09 = kalimat09[panjang_kalimat-1-huruf]+kanan09;
-    kanan10 = kalimat10[panjang_kalimat-1-huruf]+kanan10;
-    kanan11 = kalimat11[panjang_kalimat-1-huruf]+kanan11;
+    kanan01 = kalimat01.substr(perulangan+penambah,huruf);
+    kanan02 = kalimat02.substr(perulangan+penambah,huruf);
+    kanan03 = kalimat03.substr(perulangan+penambah,huruf);
+    kanan04 = kalimat05.substr(perulangan+penambah,huruf);
+    kanan05 = kalimat05.substr(perulangan+penambah,huruf);
+    kanan06 = kalimat06.substr(perulangan+penambah,huruf);
+    kanan07 = kalimat07.substr(perulangan+penambah,huruf);
+    kanan08 = kalimat08.substr(perulangan+penambah,huruf);
+    kanan09 = kalimat09.substr(perulangan+penambah,huruf);
+    kanan10 = kalimat10.substr(perulangan+penambah,huruf);
+    kanan11 = kalimat11.substr(perulangan+penambah,huruf);
 
    /* ------------------------------------------
     * pada posisi sekarang (baris), 
