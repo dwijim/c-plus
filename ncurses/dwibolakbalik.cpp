@@ -1,8 +1,9 @@
-
 /* -----------------------------------------
    program untuk mencetak tulisan yang 
-   berjalan dari bawah layar ke atas layar
-   per karakter
+   bergerak keluar masuk
+   tulisan merupakan kumpulan karakter
+   sehingga ukuran dapat dibuat menjadi besar
+   
    dibuat oleh dwi sakethi
    menggunakan g++ compiler dan pustaka ncurses
    - 30 september 2021 di studio foto
@@ -37,10 +38,6 @@
 // menggunakan fungsi untuk delay
 #include<unistd.h>
 
-#include <chrono>
-#include <thread>
-
-
 // untuk mempermudah penulisan program
 using namespace std;
 
@@ -62,8 +59,14 @@ int main ()
  string kalimat09="  ###      # #    ### ##  ### ###   ### ";
  string kalimat10="    dwijim - www.dwijim.wordpress.com   ";
  string kalimat11="      pengrajin teknologi informasi     ";
-//char kalimat[]=" dwi sakethi ";
 
+/* ---------------------------------------------------------
+   tampilan tulisan dipecah menjadi dua, yaitu setengah ke
+   kiri dan setengah ke kanan
+   oleh karena ini, dibuat variabel kiri untuk bagian kiri
+   dan variabel kanan untuk bagian kanan
+   --------------------------------------------------------- */
+  
 // kiri untuk tulisan sebelah kiri
 string kiri01=" ";
 string kiri02=" ";
@@ -76,7 +79,6 @@ string kiri08=" ";
 string kiri09=" ";
 string kiri10=" ";
 string kiri11=" ";
-//char kiri[]=" ";
 
 // kanan untuk tulisan sebelah kanan
 string kanan01=" ";
@@ -90,9 +92,6 @@ string kanan08=" ";
 string kanan09=" ";
 string kanan10=" ";
 string kanan11=" ";
-//char kanan[]=" ";
-
-// char potongan;
 
 // mendefinisikan variabel baris
 short int baris;
@@ -111,9 +110,7 @@ short int perulangan;
 
 // variabel untuk penambah posisi
   short int penambah;
-  
-  long int berhenti;
-  
+    
 // mengawali mode ncurses
 initscr();
 
@@ -125,11 +122,11 @@ clear();
 
 // menghitung panjang kalimat
 panjang_kalimat = kalimat01.length();
-//panjang_kalimat = strlen(kalimat);
 
 // dibagi dua karena ada potongan kanan dan kiri
 perulangan = (panjang_kalimat/2);
 
+// tampilan dimulai dari baris ke 5 sampai bawah
 baris = 5; 
 
 // ini bagian tulisan yang bergerak ke luar
@@ -202,15 +199,22 @@ penambah = 0;
 // looping dari setengah tulisan sampai dengan satu
 for (huruf=perulangan;huruf>1;huruf--)
 {
-    // dari baris paling bawah (23) ke baris atas (3)
-    // potongan=substr(kalimat,huruf-1,1);
-
     /* ------------------------------------------
     * pada posisi baris sebelumnya yang makin berkurang
     * (baris+1)dan kolom tetap, cetak spasi
     * ini gunanya untuk menghapus
     *------------------------------------------- */  
-    
+
+    /* ------------------------------------------
+    * mengambil string dari posisi awal sampai dengan
+    * setengah tulisan
+    * kalau tulisan aslinya adalah 'dwi sakethi'
+    * maka hasilnya adalah : dwi sa
+    *                         dwi s
+    *                          dwi 
+    *                           dwi ... dst
+    *------------------------------------------- */  
+
     kiri01 = kalimat01.substr(0,huruf);
     kiri02 = kalimat02.substr(0,huruf);
     kiri03 = kalimat03.substr(0,huruf);
