@@ -30,7 +30,7 @@ int main()
      {
         // mencetak pada baris yang bertambah
         // supaya tulisan tambah ke bawah
-        cout << baris << "\n";
+        cout << "Proses: " << baris << "\n";
         baris++;
      }    
     
