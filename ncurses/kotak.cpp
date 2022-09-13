@@ -39,11 +39,14 @@ void kotak(int baris11, int kolom11,int baris22,  int kolom22)
   kolom2 = kolom22;
   baris2 = baris22;
   
+  // karakter di pojok kiri atas
   mvprintw(baris1,kolom1,"%c",pojok);
   
+  // dari pojok kiri atas ke kanan
   for (kol=kolom1+1;kol<=kolom2-1;kol++)
   {    
-    mvprintw(baris1,kol,"%c",horisontal);    
+    mvprintw(baris1,kol,"%c",horisontal);
+    getch();
   }
   mvprintw(baris1,kolom2,"%c",pojok);
 
