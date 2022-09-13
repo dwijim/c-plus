@@ -4,30 +4,34 @@
  * dari sekumpulan bilangan
  * dibuat oleh dwi sakethi diedit oleh M.Fadhil Azhari
  * nama file bilangan-terbesar.cpp
+ * perbaikan terakhir:
+ * 13 september 2022
  ------------------------------------------- */
 
 // karena ada fungsi cin>> dan cpout<<
 #include <iostream>
-using namespace std;
 
-// deklarasi variabel yang digunakan
-int BanyakData, DataKe;
-int bilangan;
-int terbesar;
+// ini sebenarnya tidak disarankan
+using namespace std;
 
 // harus ada fungsi main()
 int main()
 {
     
+// deklarasi variabel yang digunakan
+int BanyakData, DataKe;
+int bilangan;
+int terbesar;
+
 /* -----------------------------------------
  * bilangan terbesar diberi nilai awal
  * dengan bilangan sekecil-kecilnya
  * (tergantung asumsi data yang ada
    ----------------------------------------- */
 
-// karena mencari bilanga terbesar maka
+// karena mencari bilangan terbesar maka
 // terbesar diberi awal sekecil-kecilnya
-terbesar = -999;
+terbesar = 999;
 
 // menanyakan banyaknya data
 cout<<"Berapa banyaknya data: "; 
@@ -44,7 +48,7 @@ for (DataKe=1; DataKe<=BanyakData; DataKe++)
    // menyimpan data yang lebih besar
    if (bilangan>terbesar) terbesar=bilangan;
 }
-  cout<<"Bilangan terbesar :  "<<terbesar;
+  cout<<"Bilangan terbesar :  "<<terbesar <<"\n";
 
   // karena int main() jadi bisa return 11
   return 11;
