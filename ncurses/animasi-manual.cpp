@@ -2,10 +2,10 @@
    26 oktober 2022
    contoh program animasi manual
    dengan menggunakan pustaka ncurses
-   nama file: dasar-animasi.cpp
+   nama file: animasi-manual.cpp
    
    dicompile dengan perintah:
-   g++ dasar-animasi.cpp -o animasi -l ncurses
+   g++ animasi-manual.cpp -o animasi -l ncurses
    
    kemudian dijalankan dengan perintah:
    ./animasi
