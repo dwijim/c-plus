@@ -17,7 +17,7 @@ bool SetDWORDValue (PreKeys PreKey, char *SubKey,
 bool DeleteKey (PreKeys PreKey, char *SubKey);
 bool SetStringValue (PreKeys PreKey,char *SubKey,
                      char *Value, char* Data);
-bool CerateKey (PreKeys PreKey, char *SubKey);
+bool CreateKey (PreKeys PreKey, char *SubKey);
 
 #endif // _REGACCESS_
 
