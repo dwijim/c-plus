@@ -1,7 +1,12 @@
+/* ---------------------------------------------
+   nama file: regacces.cpp
+
+   --------------------------------------------- */
 
 #include <iostream>
 #include <windows.h>
 #include "regaccess.h"
+
 using namespace std;
 
 HKEY GetPredefineKey (PreKeys PreKey)
