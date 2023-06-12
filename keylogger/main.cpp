@@ -1,3 +1,8 @@
+/* ---------------------------------------------
+   nama file: main.cpp
+
+   --------------------------------------------- */
+
 #include <windows.h>
 #include <cstdio>
 #include <iostream>
