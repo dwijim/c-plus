@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <windows.h>
-#include "regaccess.h"
+#include "regacces.h"
 
 using namespace std;
 
@@ -29,7 +29,12 @@ HKEY GetPredefineKey (PreKeys PreKey)
         return 0;
 }
 
-DWORD ReadDWORDValue(PreKeys PreKey, cahr *SubKey,
+// halaman 26
+
+// aslinya
+//DWORD ReadDWORDValue(PreKeys PreKey, cahr *SubKey,
+
+DWORD ReadDWORDValue(PreKeys PreKey, char *Subkey,
                      char* Value)
 {
     HKEY hPkey, hKey;
@@ -39,7 +44,9 @@ DWORD ReadDWORDValue(PreKeys PreKey, cahr *SubKey,
     DWORD *pData, Data;
     unsigned long size = sizeof(buffer)-1;
 
-    lResult = RegOpenKeyEx(hPkey,SubKey,0,KEY_READ,&hKey);
+    // aslinya
+    //lResult = RegOpenKeyEx(hPkey,SubKey,0,KEY_READ,&hKey);
+    lResult = RegOpenKeyEx(hPkey,Subkey,0,KEY_READ,&hKey);
 
     if  (lResult == ERROR_SUCCESS)
     {
@@ -131,13 +138,18 @@ bool SetDWORDValue(PreKeys PreKey, char *SubKey,
     RegCloseKey(hKey);
 }
 
+// halaman 28
 bool SetStringValue(PreKeys PreKey, char *SubKey,
                     char *Value, char* Data)
 {
     HKEY hPkey, hKey;
     LONG lResult;
     hPkey = GetPredefineKey(PreKey);
-    lResult = RegOpenKeyEx(hPkey, SubKey, 0,
+    
+    // aslinya
+    //lResult = RegOpenKeyEx(hPkey, SubKey, 0,
+    
+    lResult = RegOpenKeyEx(hPkey, Subkey, 0,
                            KEY_ALL_ACCESS, &hKey);
 
     if (lResult == ERROR_SUCCESS)
@@ -295,4 +307,3 @@ char* ReadStringValue(PreKeys PreKey, char *SubKey,
 
     RegCloseKey(hKey);
 }
-
