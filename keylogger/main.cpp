@@ -8,9 +8,11 @@
 #include <iostream>
 
 // ini aslinya gak ada
-#include <time.h>;
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-#include "regacces.h"
+#include "regaccess.h"
 
 using namespace std;
 
@@ -386,3 +388,4 @@ void InvokeLogFile(void)
 }
     ini yang salah posisi
    -------------------------------------------- */
+
