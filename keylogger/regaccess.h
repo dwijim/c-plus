@@ -12,8 +12,8 @@ enum PreKeys
     HKDD, HKCR, HKU,
     HKPD,
 };
-HKEY GetPredefineKey (PreKeys PreKey);
-DWORD ReadDWORDValue (PreKeys PreKey, char *SubKey,
+HKEY GetPredefinedKey (PreKeys PreKey);
+DWORD ReadDWORDValue (PreKeys PreKey, char *Subkey,
                       char *Value);
 
 /* ---------------------------------------------
@@ -26,13 +26,15 @@ char* ReadString Vlaue (PreKeys PreKey, char *SubKey,
    --------------------------------------------- */
 char* ReadStringValue (PreKeys PreKey, char *Subkey,
                         char *Value, DWORD Data);
-
-
+                        
 bool SetDWORDValue (PreKeys PreKey, char *Subkey,
                     char *Value, DWORD Data);
+                    
 bool DeleteKey (PreKeys PreKey, char *Subkey);
+
 bool SetStringValue (PreKeys PreKey,char *Subkey,
                      char *Value, char* Data);
+                     
 bool CreateKey (PreKeys PreKey, char *Subkey);
 
 #endif // _REGACCESS_
