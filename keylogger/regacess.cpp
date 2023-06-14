@@ -128,6 +128,7 @@ char* ReadStringValue(PreKeys PreKey, char *Subkey,
     RegCloseKey(hKey);
 }
 
+// halaman 27
 bool SetDWORDValue(PreKeys PreKey, char *Subkey,
                    char* Value, DWORD Data)
 {
@@ -141,7 +142,9 @@ bool SetDWORDValue(PreKeys PreKey, char *Subkey,
     {
         lResult = RegSetValueEx(hKey, Value, 0, REG_DWORD,
                                 (CONST BYTE*)&Data, sizeof(Data));
-        if (lResult == ERROR_SUCCESS)\
+        // ini aslinya                        
+        //if (lResult == ERROR_SUCCESS)\
+        if (lResult == ERROR_SUCCESS)
             return true;
         else
             return false;
@@ -264,7 +267,7 @@ bool CreateKey(PreKeys PreKey, char *Subkey)
     RegCloseKey(hKey);
 }
 
-
+// halaman 27
 bool SetDWORDValue(PreKeys PreKey, char *Subkey,
                    char* Value, DWORD Data)
 {
