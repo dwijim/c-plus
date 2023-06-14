@@ -1,15 +1,22 @@
 /* ---------------------------------------------
-   nama file: regacces.cpp
+   nama file: regaccess.cpp
 
    --------------------------------------------- */
 
 #include <iostream>
+
 #include <windows.h>
-#include "regacces.h"
+
+#include "regaccess.h"
+
+// ini aslinya gak ada
+#include <time.h>
+
 
 using namespace std;
 
-HKEY GetPredefineKey (PreKeys PreKey)
+// halaman 25
+HKEY GetPredefinedKey (PreKeys PreKey)
 {
     if(PreKey == HKCR)
         return HKEY_CLASSES_ROOT;
@@ -39,7 +46,7 @@ DWORD ReadDWORDValue(PreKeys PreKey, char *Subkey,
 {
     HKEY hPkey, hKey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
     BYTE buffer[1024] = {'\0'};
     DWORD *pData, Data;
     unsigned long size = sizeof(buffer)-1;
@@ -66,7 +73,7 @@ bool DeleteKey(PreKeys PreKey, char *SubKey)
 {
     HKEY hPkey, hKey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
 
     lResult = RegDeleteKey(hPkey, SubKey);
     if (lResult == ERROR_SUCCESS)
@@ -77,18 +84,25 @@ bool DeleteKey(PreKeys PreKey, char *SubKey)
     RegCloseKey(hKey);
 }
 
+/* ------------------------------------------------
+   halaman 27
+   ini aslinya
 char* ReadStringValue(PreKeys PreKey, char *SubKey,
                       char *Vlaue)
+   ------------------------------------------------ */
+char* ReadStringValue(PreKeys PreKey, char *Subkey,
+                      char *Value)
+                      
 {
     HKEY hPkey, hKey;
     LONG lResult;
     BYTE Buffer[1024] = {'\0'};
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
     char *pszData;
     char *Data = new char[1024];
     unsigned long size = sizeof(buffer)-1;
 
-    lResult = RegOpenKeyEx(hPkey,SubKey,0,KEY_READ,&hKey);
+    lResult = RegOpenKeyEx(hPkey,Subkey,0,KEY_READ,&hKey);
 
     if (lResult == ERROR_SUCCESS)
     {
@@ -114,14 +128,14 @@ char* ReadStringValue(PreKeys PreKey, char *SubKey,
     RegCloseKey(hKey);
 }
 
-bool SetDWORDValue(PreKeys PreKey, char *SubKey,
+bool SetDWORDValue(PreKeys PreKey, char *Subkey,
                    char* Value, DWORD Data)
 {
     HKEY hPkey, hKey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
 
-    lResult = RegOpenKeyEx(hPkey, SubKey, 0,
+    lResult = RegOpenKeyEx(hPkey, Subkey, 0,
                            KEY_ALL_ACCESS, &hKey);
     if (lResult == ERROR_SUCCESS)
     {
@@ -139,12 +153,16 @@ bool SetDWORDValue(PreKeys PreKey, char *SubKey,
 }
 
 // halaman 28
-bool SetStringValue(PreKeys PreKey, char *SubKey,
-                    char *Value, char* Data)
+//bool SetStringValue(PreKeys PreKey, char *SubKey,
+
+bool SetStringValue (PreKeys PreKey, char *Subkey,
+                     char *Value, char* Data)
+// ini tadinya pakai titik koma di bagian belakang
+
 {
     HKEY hPkey, hKey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
     
     // aslinya
     //lResult = RegOpenKeyEx(hPkey, SubKey, 0,
@@ -162,19 +180,20 @@ bool SetStringValue(PreKeys PreKey, char *SubKey,
         else
             return false;
     }
-
     else
         return false;
 
     RegCloseKey(hKey);
 }
 
-bool CreatKey(PreKeys PreKey, char *SubKey)
+// ini aslinya
+//bool CreatKey(PreKeys PreKey, char *Subkey)
+bool CreateKey(PreKeys PreKey, char *Subkey)
 {
     HKEY hKey, hPkey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
-    lResult = RegCreateKeyEx(hPkey, SubKey, 0, NULL,
+    hPkey = GetPredefinedKey(PreKey);
+    lResult = RegCreateKeyEx(hPkey, Subkey, 0, NULL,
                              REG_OPTION_NON_VOLATILE,
                              KEY_ALL_ACCESS, NULL,
                              &hKey, NULL);
@@ -187,8 +206,10 @@ bool CreatKey(PreKeys PreKey, char *SubKey)
     RegCloseKey(hKey);
 }
 
-
-HKEY GetPredefineKey(PreKeys Prekey)
+// halaman 29
+// ini aslinya
+//HKEY GetPredefineKey(PreKeys Prekey)
+HKEY GetPredefinedKey(PreKeys Prekey)
 {
     if(Prekey == HKCR)
         return HKEY_CLASSES_ROOT;
@@ -209,13 +230,13 @@ HKEY GetPredefineKey(PreKeys Prekey)
 }
 
 
-bool DeleteKey(PreKeys PreKey, char *SubKey)
+bool DeleteKey(PreKeys PreKey, char *Subkey)
 {
     HKEY hPKey, hKey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
 
-    lResult = RegDeleteKey(hPkey, SubKey);
+    lResult = RegDeleteKey(hPkey, Subkey);
     if (lResult == ERROR_SUCCESS)
         return true;
     else
@@ -225,12 +246,12 @@ bool DeleteKey(PreKeys PreKey, char *SubKey)
 }
 
 
-bool CreateKey(PreKeys PreKey, char *SubKey)
+bool CreateKey(PreKeys PreKey, char *Subkey)
 {
     HKEY hKey, hPkey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
-    lResult = RegCreateKeyEx(hPkey, SubKey, 0, NULL,
+    hPkey = GetPredefinedKey(PreKey);
+    lResult = RegCreateKeyEx(hPkey, Subkey, 0, NULL,
                              REG_OPTION_NON_VOLATILE,
                              KEY_ALL_ACCESS, NULL,
                              &hKey, NULL);
@@ -249,7 +270,7 @@ bool SetDWORDValue(PreKeys PreKey, char *Subkey,
 {
     HKEY hPkey, hKey;
     LONG lResult;
-    hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
 
     lResult = RegOpenKeyEx(hPkey, Subkey, 0,
                            KEY_ALL_ACCESS, &hKey);
@@ -270,23 +291,28 @@ bool SetDWORDValue(PreKeys PreKey, char *Subkey,
     RegCloseKey(hKey);
 }
 
-
-char* ReadStringValue(PreKeys PreKey, char *SubKey,
+// halaman 33
+char* ReadStringValue(PreKeys PreKey, char *Subkey,
                       char *Value)
 {
     HKEY hPkey, hKey;
     LONG lResult;
     BYTE buffer[1024] = {'\0'};
-    hPkey = GetPredefineKey(PreKey);
+    // ini aslinya
+    //hPkey = GetPredefineKey(PreKey);
+    hPkey = GetPredefinedKey(PreKey);
+    
     char *pszData;
     char *Data = new char[1024];
     unsigned long size = sizeof(buffer)-1;
 
-    lResult = RegOpenKeyEx(hPkey,SubKey,0,KEY_READ,&hKey);
+    lResult = RegOpenKeyEx(hPkey,Subkey,0,KEY_READ,&hKey);
 
     if (lResult == ERROR_SUCCESS)
     {
-        lResult = RegQueryValueEx(hKey,Value,0,0,buffer,*size);
+		// ini aslinya
+        //lResult = RegQueryValueEx(hKey,Value,0,0,buffer,*size);
+        lResult = RegQueryValueEx(hKey,Value,0,0,buffer,&size);
 
         if (lResult == ERROR_SUCCESS)
         {
@@ -307,3 +333,4 @@ char* ReadStringValue(PreKeys PreKey, char *SubKey,
 
     RegCloseKey(hKey);
 }
+
