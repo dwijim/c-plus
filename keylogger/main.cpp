@@ -65,6 +65,7 @@ GetSystemDirectory(szPath, sizeof(szPath));
 strncat(szPath, "\\", MAX_PATH-1);
 strncat(szCurrent, szPath, true);
 
+// halaman 38
 // ini aslinya
 //SetStringValue(HKLM
 
