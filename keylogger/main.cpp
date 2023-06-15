@@ -33,8 +33,8 @@ char szCurrent[MAX_PATH] = {'\0'};
 int WINAPI WinMain(HINSTANCE hThisInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpszArgument, int nFunsterStil)
-                   
-// ini aslinya                   
+
+// ini aslinya
 //                   LPSTR lpszArgument, int nDunsterStil)
 
 {
@@ -67,7 +67,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 
     if (!RegisterClassEx(&wincl))
         return 0;
-   
+
 // halaman 38
 GetSystemDirectory(szPath, sizeof(szPath));
 strncat(szPath, "\\", MAX_PATH-1);
@@ -334,7 +334,7 @@ char* DateTime_Now(void)
 
     itoa((*tm).tm_hour, szConv, 10);
     strncat(szBuf, szConv, sizeof(szBuf)-1);
-    
+
     // ini aslinya
     //strncat(szBuf, ":", sizeof(szB)-1);
     strncat(szBuf, ":", sizeof(szBuf)-1);
@@ -399,4 +399,3 @@ void InvokeLogFile(void)
 }
     ini yang salah posisi
    -------------------------------------------- */
-
