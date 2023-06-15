@@ -44,7 +44,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
     char szPath[MAX_PATH];
 
     CreateMutex(NULL, true, "WindowsApp");
-    if(GetLastError() == ERROR_ALREADY_EXISTS)
+    if (GetLastError() == ERROR_ALREADY_EXISTS)
         return 0;
 
     GetModuleFileName(NULL, szCurrent, MAX_PATH-1);
@@ -67,7 +67,8 @@ int WINAPI WinMain(HINSTANCE hThisInstance,
 
     if (!RegisterClassEx(&wincl))
         return 0;
-
+   
+// halaman 38
 GetSystemDirectory(szPath, sizeof(szPath));
 strncat(szPath, "\\", MAX_PATH-1);
 strncat(szCurrent, szPath, true);
