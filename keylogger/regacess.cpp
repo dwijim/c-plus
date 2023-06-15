@@ -193,6 +193,7 @@ bool SetStringValue (PreKeys PreKey, char *Subkey,
     RegCloseKey(hKey);
 }
 
+// halaman 28
 // ini aslinya
 //bool CreatKey(PreKeys PreKey, char *Subkey)
 bool CreateKey(PreKeys PreKey, char *Subkey)
