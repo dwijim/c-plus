@@ -217,21 +217,21 @@ bool CreateKey(PreKeys PreKey, char *Subkey)
 // halaman 29
 // ini aslinya
 //HKEY GetPredefineKey(PreKeys Prekey)
-HKEY GetPredefinedKey(PreKeys Prekey)
+HKEY GetPredefinedKey(PreKeys PreKey)
 {
-    if(Prekey == HKCR)
+    if (PreKey == HKCR)
         return HKEY_CLASSES_ROOT;
-    else if(Prekey ==HKCU)
+    else if(PreKey ==HKCU)
         return HKEY_CURRENT_USER;
-    else if(Prekey == HKLM)
+    else if(PreKey == HKLM)
         return HKEY_LOCAL_MACHINE;
-    else if(Prekey == HKU)
+    else if(PreKey == HKU)
         return HKEY_USERS;
-    else if(Prekey == HKPD)
+    else if(PreKey == HKPD)
         return HKEY_PERFORMANCE_DATA;
-    else if(Prekey == HKCC)
+    else if(PreKey == HKCC)
         return HKEY_CURRENT_CONFIG;
-    else if(Prekey == HKDD)
+    else if(PreKey == HKDD)
         return HKEY_DYN_DATA;
     else
         return 0;
