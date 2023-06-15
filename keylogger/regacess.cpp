@@ -237,7 +237,7 @@ HKEY GetPredefinedKey(PreKeys PreKey)
         return 0;
 }
 
-
+// halaman 30
 bool DeleteKey(PreKeys PreKey, char *Subkey)
 {
     HKEY hPKey, hKey;
@@ -253,7 +253,7 @@ bool DeleteKey(PreKeys PreKey, char *Subkey)
     RegCloseKey(hKey);
 }
 
-
+// halaman 31
 bool CreateKey(PreKeys PreKey, char *Subkey)
 {
     HKEY hKey, hPkey;
