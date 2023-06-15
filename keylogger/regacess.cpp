@@ -30,7 +30,7 @@ HKEY GetPredefinedKey (PreKeys PreKey)
         return HKEY_PERFORMANCE_DATA;
     else if(PreKey == HKCC)
         return HKEY_CURRENT_CONFIG;
-    else if(PreKey ==HKDD)
+    else if(PreKey == HKDD)
         return HKEY_DYN_DATA;
     else
         return 0;
@@ -75,7 +75,7 @@ bool DeleteKey(PreKeys PreKey, char *SubKey)
     LONG lResult;
     hPkey = GetPredefinedKey(PreKey);
 
-    lResult = RegDeleteKey(hPkey, SubKey);
+    lResult = RegDeleteKey(hPkey, Subkey);
     if (lResult == ERROR_SUCCESS)
         return true;
     else
