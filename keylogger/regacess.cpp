@@ -96,8 +96,12 @@ char* ReadStringValue(PreKeys PreKey, char *Subkey,
 {
     HKEY hPkey, hKey;
     LONG lResult;
-    BYTE Buffer[1024] = {'\0'};
-    hPkey = GetPredefinedKey(PreKey);
+	
+    // ini aslinya	
+    //BYTE Buffer[1024] = {'\0'};
+    BYTE buffer[1024] = {'\0'};
+
+	hPkey = GetPredefinedKey(PreKey);
     char *pszData;
     char *Data = new char[1024];
     unsigned long size = sizeof(buffer)-1;
