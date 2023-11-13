@@ -1,4 +1,4 @@
-/* ---------------------------------------------
+/* -------------------------------------------------------
  * program untuk mendeteksi tombol yang ditekan
  * kemudian menggeser tulisan ke kiri atau ke kanan
  * sesuai dengan tombol panah yang ditekan
@@ -8,18 +8,18 @@
  * - 5 juli 2021
  * - 14 november 2021
  * - 16 november 2021
- * 
+ * - 14 november 2023
+ 
  * untuk mengkompilasi dan menjalankan program ini
  * sudah dicoba di Linux yang sudah dipasang
  * g++ compiler dan ncurses
  * serta dapat juga dikompilasi dan dijalankan
  * secara online di https://cocalc.com/
  *
- * file ini disimpan dengan nama tombol.cpp
- * compile g++ tombol.cpp -o tombol -l ncurses
+ * file ini disimpan dengan nama arahtulisandengantombol.cpp
+ * compile g++ arahtulisandengantombol.cpp -o tombol -l ncurses
  * 
- * file ini juga disimpan di github, tapi masih bingung
- * --------------------------------------------- */
+ * ------------------------------------------------------- */
 
 #include "iostream"
 #include "ncurses.h"
@@ -30,11 +30,19 @@ using namespace std;
 // mendefinisikan tombol ESC nilai 27
 #define KEY_ESC 27
 
+// definisi batas kanan kolom
+#define batas_kanan_kolom 75
+
 // kolom tengah layar
 #define kolom_tengah 40
 
 // posisi baris bawah
-#define baris_bawah 22
+#define baris_bawah 20
+
+// posisi baris dan kolom target
+#define baris_target 2
+#define kolom_target 37
+
 
 // harus ada fungsi main()
 int main(){
@@ -56,6 +64,8 @@ int main(){
    // F1 .. F10, panah kanan, panah kiri dst ...
    keypad(stdscr,TRUE);
 
+  //keypad (win, true);
+  
    // menyembunyikan tampilan kursor
    curs_set(0);
 
@@ -67,6 +77,8 @@ int main(){
 
    // membuat looping selama tidak menekan tombol ESC
      while (tombol != KEY_ESC) {
+       
+       mvprintw (baris_target,kolom_target,"*");
           if ((tombol = getch()) == ERR) {
               /* user hasn't responded
                ...
@@ -76,11 +88,21 @@ int main(){
               /* user has pressed a key ch
                ...
               */ 
-             if(tombol == KEY_ENTER)
+             if (tombol == KEY_ENTER)
                 { 
                   // misal kalau menekan tombol enter
                   // ada sesuatu yang akan dilakukan
                   // dapat dituliskan di sini
+                
+               int baris_peluru;
+               
+                  for (baris_peluru=baris-1;baris_peluru<=baris_target;baris_peluru--)
+                  {
+                    mvprintw(baris_peluru,kolom,"^");
+//sleep(1);
+                    mvprintw(baris_peluru,kolom," ");
+                    
+                  }
                   }  
              else if(tombol == KEY_LEFT)
                 { 
@@ -96,9 +118,9 @@ int main(){
                   kolom = kolom + 1;
 
                   // jika sudah mentok ke kanan, kolom tetap 75
-                  if (kolom==75) kolom=75;
+                  if (kolom>batas_kanan_kolom) kolom=batas_kanan_kolom;
                 }  
-             else if(tombol == KEY_UP)
+             else if(tombol == KEY_UP) 
                 { 
                   
                   // di tempat lama, dihapus dengan mencetak spasi
