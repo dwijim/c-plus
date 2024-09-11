@@ -1,3 +1,13 @@
+/* --------------------------------------------------
+   program untuk menentukan suatu bilangan termasuk
+   ke dalam kategori bilangan ganjil atau bilangan
+   genap.
+   file name : ganjilgenap.cpp
+   compiling : g++ ./ganjilgenap.cpp -o bilangan
+   running   : ./bilangan
+   dwi sakethi
+   -------------------------------------------------- */
+
 
 #include "iostream"
 
