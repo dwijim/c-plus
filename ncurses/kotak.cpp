@@ -1,119 +1,60 @@
-/* -------------------------------
-   contoh format dasar program C++
-   dengan menggunakan pustaka ncurses
-   nama file: kotak.cpp
-   dicompile dengan perintah:
-   g++ kotak.cpp -o kotak -l ncurses
-   
-   program ini ditulis di cocalc.com
-   pada tanggal 12 september 2021
+#include <ncurses.h>
 
-   ------------------------------- */
-
-// ini karena menggunakan pustaka ncurses
-#include "ncurses.h"
-
-// input/output di dalam C++
-#include "iostream"
-
-// tidak disarankan menggunakan seperti ini
-// supaya menyingkat penulisan
-using namespace std;
-
-#define pojok (43)
-//#     pojok  "+"
-
-#define horisontal (45)
-//#     garis mendatar  "-"
-
-#define vertikal (124)
-//#     garis vertikal  "|"
-
-void kotak(int baris11, int kolom11,int baris22,  int kolom22)
+void kotak(short int baris1,short int kolom1,
+              short int baris2,short int kolom2)
 {
-  int kolom1,kolom2,baris1,baris2;
-  int kol,bar;
-  // baris atas mendatar
-  kolom1 = kolom11;
-  baris1 = baris11;
-  kolom2 = kolom22;
-  baris2 = baris22;
-  
-  // karakter di pojok kiri atas
-  mvprintw(baris1,kolom1,"%c",pojok);
-  
-  // dari pojok kiri atas ke kanan
-  for (kol=kolom1+1;kol<=kolom2-1;kol++)
-  {    
-    mvprintw(baris1,kol,"%c",horisontal);
-    getch();
-  }
-  mvprintw(baris1,kolom2,"%c",pojok);
+    short int baris,kolom;
 
-  // baris samping kanan ke bawah
+  // mencetak karakter pokok kiri atas
+  mvaddch(baris1,kolom1,ACS_ULCORNER);
   
-  for (bar=baris1+1;bar<=baris2-1;bar++)
-  {    
-    mvprintw(bar,kolom2,"%c",vertikal);    
-  }
-  mvprintw(baris2,kolom2,"%c",pojok);
- 
-  // baris bawah ke kiri
-  
-  for (kol=kolom2-1;kol>=kolom1+1;kol--)
-  {    
-    mvprintw(baris2,kol,"%c",horisontal);    
-  }
-  mvprintw(baris2,kolom1,"%c",pojok);
+  // mencetak garis mendatar
+  for (kolom=kolom1+1;kolom<=kolom2-1;kolom++)
+      {
+        mvaddch(baris1,kolom,ACS_HLINE);
+      }
+  // mencetak karakter pokok kiri atas
+  mvaddch(baris1,kolom2,ACS_URCORNER);
 
-  // baris samping kiri ke atas
-  
-  for (bar=baris2-1;bar>=baris1+1;bar--)
-  {    
-    mvprintw(bar,kolom1,"%c",vertikal);    
-  }
+  // mencetak garis vertikal
+  for (baris=baris1+1;baris<=baris2-1;baris++)
+      {
+        mvaddch(baris,kolom2,ACS_VLINE);
+      }
+  // mencetak karakter pokok kanan bawah
+  mvaddch(baris2,kolom2,ACS_LRCORNER);
 
+  // mencetak garis mendata di bagian bawah
+  // dari atas ke bawah
+  for (kolom=kolom2-1;kolom>=kolom1+1;kolom--)
+      {
+        mvaddch(baris2,kolom,ACS_HLINE);
+      }
+
+  // mencetak karakter pokok kiri bawah
+  mvaddch(baris2,kolom1,ACS_LLCORNER);
+
+  // mencetak garis vertikal di sebelah kiri
+  for (baris=baris2-1;baris>=baris1+1;baris--)
+      {
+        mvaddch(baris,kolom1,ACS_VLINE);
+      }
   
-  
+  // return null;
 }
 
-int main(){
-  
-  int gerak;
-   
-  //mengawali layar untuk ncurses
+int main()
+{
+
   initscr();
-  
-  // membersihkan layar
-  clear();
-  
-  kotak(3,8,9,15);
 
-  kotak(11,20,20,45);
+  kotak(1,1,24,79);
 
-  kotak(3,30,10,50);
-  
-  // menahan tampilan layar
+  kotak(15,55,20,75);
+
+  kotak(2,15,10,40);
+
   getch();
-   
-     clear();
-  for (gerak=1;gerak<=40;gerak++)
-  {
-    
-    kotak(gerak,5,10+gerak,25);
-    getch();
-    clear();
-  }
-
-  //mengakhiri layar ncurses
   endwin();
-  
-  // hasil fungsi main() bertipe integer
-  return 46;
+  return 116;  
 }
-
-
-
-
-
-
