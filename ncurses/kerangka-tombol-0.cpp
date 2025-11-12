@@ -8,20 +8,23 @@
  * 
  * file ini disimpan dengan nama kerangka-tombol-0.cpp
  * compile g++ kerangka-tombol-0.cpp -o tombol -l ncurses
- * 
+ *  
  * --------------------------------------------- */
 
-#include "iostream"
+// karena ada fungsi-fungsi yang berasal dari lib ncurses 
 #include "ncurses.h"
-#include "string.h"
 
+// supaya penulisan program menjadi lebih ringkas
 using namespace std;
 
 // kolom tengah layar
 #define kolom_tengah 40
 
-// posisi baris bawah
-#define baris_bawah 22
+// posisi baris tengah
+#define baris_tengah 20
+
+// posisi baris tengah
+#define KEY_ESC 27
 
 // harus ada fungsi main()
 int main(){
@@ -41,27 +44,35 @@ int main(){
 // nodelay(stdscr, TRUE);
    tombol = 0;
 
-   baris = 10;
-   kolom = 40;
+   baris = baris_tengah;
+   kolom = kolom_tengah;
    mvprintw(baris,kolom," aku ");
+
    // membuat looping selama tidak menekan tombol ESC
-     while (tombol != 27) 
+     while (tombol != KEY_ESC) 
      {
         if ((tombol = getch()) == ERR) {
             /* user hasn't responded
              ...
             */
         }
-        else {
-              // cetak sesuatu sesuai dengan baris dan kolom
-                // di kanan dan kiri diberi spasi
-                // untuk menghapus
-                mvprintw(baris,kolom," aku ");
-               
+       else 
+         {
+           if(tombol == KEY_LEFT)
+             { 
+               // bergerak ke kiri, jadi kolom berkurang
+               kolom = kolom - 1;
+               mvprintw(baris,kolom,  " aku ");
+               mvprintw(baris,kolom+1,"     ");
+             }
+         }  
      }
-    }
    // menutup layar mode ncurses
    endwin();  
       // kembali ke program utama
    return 0;
 }
+
+
+nasi goreng sendok makan saya 
+
