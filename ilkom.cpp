@@ -17,10 +17,14 @@ using namespace std;
 // satu fungsi yaitu fungsi main()
 int main()
 {
-    deklarasi variabel yang digunakan
-	short int baris, tulisan_ke;
+   //deklarasi variabel yang digunakan
+   short int baris, tulisan_ke;
+
+   //deklarasi variabel tipe string
+   string tulisan;
 
    // menanyakan tulisan yang akan dicetak
+   // karena string jadi menggunakan getline
    cout << "Tulisan yang akan dicetak : ";
    getline(cin, tulisan);
 
