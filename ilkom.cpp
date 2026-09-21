@@ -22,7 +22,7 @@ int main()
 
    // menanyakan tulisan yang akan dicetak
    cout << "Tulisan yang akan dicetak : ";
-   cin >> tulisan;
+   getline(cin, tulisan);
 
    // menanyakan akan dicetak berapa kali
    cout << "Berapa baris : ";
