@@ -1,17 +1,17 @@
 /* -----------------------------------------
-   program untuk mencetak tulisan yang 
+   program untuk mencetak tulisan yang
    bergerak keluar masuk
    tulisan merupakan kumpulan karakter
    sehingga ukuran dapat dibuat menjadi besar
-   
+
    dibuat oleh dwi sakethi
    menggunakan g++ compiler dan pustaka ncurses
    - 30 september 2021 di studio foto
    - 2 oktober 2021 alhamdulillah jadi juga
    - 20 november 2021 di bandung
-   
+
    program ini diberi nama: dwibolakbalik.cpp
-   
+
    di-compile dengan perintah:
    g++ dwibolakbalik.cpp -o tulisan -l ncurses
 
@@ -45,9 +45,9 @@ using namespace std;
 // fungsi utama di dalam bahasa C++
 int main ()
 {
-  
+
 // mendefinisikan kalimat string 60 karakter
-// diberi spasi fungsinya untuk menghapus	
+// diberi spasi fungsinya untuk menghapus
  string kalimat01="     #                  #               ";
  string kalimat02="     #                                  ";
  string kalimat03="     #             #    #  #            ";
@@ -66,7 +66,7 @@ int main ()
    oleh karena ini, dibuat variabel kiri untuk bagian kiri
    dan variabel kanan untuk bagian kanan
    --------------------------------------------------------- */
-  
+
 // kiri untuk tulisan sebelah kiri
 string kiri01=" ";
 string kiri02=" ";
@@ -110,7 +110,7 @@ short int perulangan;
 
 // variabel untuk penambah posisi
   short int penambah;
-    
+
 // mengawali mode ncurses
 initscr();
 
@@ -127,7 +127,7 @@ panjang_kalimat = kalimat01.length();
 perulangan = (panjang_kalimat/2);
 
 // tampilan dimulai dari baris ke 5 sampai bawah
-baris = 5; 
+baris = 5;
 
 // ini bagian tulisan yang bergerak ke luar
 // looping dari huruf pertama sampai setengah tulisan
@@ -143,8 +143,8 @@ for (huruf=0;huruf<perulangan;huruf++)
     * pada posisi baris sebelumnya yang makin berkurang
     * (baris+1)dan kolom tetap, cetak spasi
     * ini gunanya untuk menghapus
-    *------------------------------------------- */  
-    
+    *------------------------------------------- */
+
     kiri01 = kiri01 + kalimat01[huruf];
     kiri02 = kiri02 + kalimat02[huruf];
     kiri03 = kiri03 + kalimat03[huruf];
@@ -158,7 +158,7 @@ for (huruf=0;huruf<perulangan;huruf++)
     kiri11 = kiri11 + kalimat11[huruf];
     //kiri = kalimat.substr(0,huruf+1);
     //strcat(kiri,kalimat[huruf]);
-   
+
     kanan01 = kalimat01[panjang_kalimat-1-huruf]+kanan01;
     kanan02 = kalimat02[panjang_kalimat-1-huruf]+kanan02;
     kanan03 = kalimat03[panjang_kalimat-1-huruf]+kanan03;
@@ -172,9 +172,9 @@ for (huruf=0;huruf<perulangan;huruf++)
     kanan11 = kalimat11[panjang_kalimat-1-huruf]+kanan11;
 
    /* ------------------------------------------
-    * pada posisi sekarang (baris), 
+    * pada posisi sekarang (baris),
     * cetak karakter saat ini
-    *------------------------------------------- */  
+    *------------------------------------------- */
     mvprintw(baris+1,kolom,"%s%s",kiri01.c_str(),kanan01.c_str());
     mvprintw(baris+2,kolom,"%s%s",kiri02.c_str(),kanan02.c_str());
     mvprintw(baris+3,kolom,"%s%s",kiri03.c_str(),kanan03.c_str());
@@ -190,12 +190,12 @@ for (huruf=0;huruf<perulangan;huruf++)
     //mvprintw(21,1,"kanan: %s",kanan.c_str());
 
     // menghentikan proses selama 1 detik
-    refresh(); sleep(1);  
+    refresh(); sleep(1);
 }
 
 penambah = 0;
-  
-// ini bagian tulisan yang bergerak ke dalam 
+
+// ini bagian tulisan yang bergerak ke dalam
 // looping dari setengah tulisan sampai dengan satu
 for (huruf=perulangan;huruf>1;huruf--)
 {
@@ -203,7 +203,7 @@ for (huruf=perulangan;huruf>1;huruf--)
     * pada posisi baris sebelumnya yang makin berkurang
     * (baris+1)dan kolom tetap, cetak spasi
     * ini gunanya untuk menghapus
-    *------------------------------------------- */  
+    *------------------------------------------- */
 
     /* ------------------------------------------
     * mengambil string dari posisi awal sampai dengan
@@ -211,9 +211,9 @@ for (huruf=perulangan;huruf>1;huruf--)
     * kalau tulisan aslinya adalah 'dwi sakethi'
     * maka hasilnya adalah : dwi sa
     *                         dwi s
-    *                          dwi 
+    *                          dwi
     *                           dwi ... dst
-    *------------------------------------------- */  
+    *------------------------------------------- */
 
     kiri01 = kalimat01.substr(0,huruf);
     kiri02 = kalimat02.substr(0,huruf);
@@ -226,11 +226,11 @@ for (huruf=perulangan;huruf>1;huruf--)
     kiri09 = kalimat09.substr(0,huruf);
     kiri10 = kalimat10.substr(0,huruf);
     kiri11 = kalimat11.substr(0,huruf);
-   
+
     kanan01 = kalimat01.substr(perulangan+penambah,huruf);
     kanan02 = kalimat02.substr(perulangan+penambah,huruf);
     kanan03 = kalimat03.substr(perulangan+penambah,huruf);
-    kanan04 = kalimat05.substr(perulangan+penambah,huruf);
+    kanan04 = kalimat04.substr(perulangan+penambah,huruf);
     kanan05 = kalimat05.substr(perulangan+penambah,huruf);
     kanan06 = kalimat06.substr(perulangan+penambah,huruf);
     kanan07 = kalimat07.substr(perulangan+penambah,huruf);
@@ -240,9 +240,9 @@ for (huruf=perulangan;huruf>1;huruf--)
     kanan11 = kalimat11.substr(perulangan+penambah,huruf);
 
    /* ------------------------------------------
-    * pada posisi sekarang (baris), 
-    * cetak karakter saat ini 
-    *------------------------------------------- */  
+    * pada posisi sekarang (baris),
+    * cetak karakter saat ini
+    *------------------------------------------- */
     mvprintw(baris+1,kolom,"%s%s",kiri01.c_str(),kanan01.c_str());
     mvprintw(baris+2,kolom,"%s%s",kiri02.c_str(),kanan02.c_str());
     mvprintw(baris+3,kolom,"%s%s",kiri03.c_str(),kanan03.c_str());
@@ -257,12 +257,12 @@ for (huruf=perulangan;huruf>1;huruf--)
 
     // variabel untuk menggeser posisi ke kanan
     penambah = penambah + 1;
-  
+
     // posisi kolom makin geser ke kanan
     kolom = kolom + 1;
-    
+
     // menghentikan proses selama 1 detik
-    refresh(); sleep(1);  
+    refresh(); sleep(1);
 }
 
 // menutup mode ncurses
