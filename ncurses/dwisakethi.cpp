@@ -70,12 +70,12 @@ int main ()
 //char kalimat[]=" dwi sakethi ";
 
 // kiri untuk tulisan sebelah kiri
-string kiri=" ";
-//char kiri[]=" ";
+string kiri01=" ";
+string kiri02=" ";
 
 // kanan untuk tulisan sebelah kanan
-string kanan=" ";
-//char kanan[]=" ";
+string kanan01=" ";
+string kanan02=" ";
 
 // char potongan;
 
@@ -129,20 +129,17 @@ for (huruf=0;huruf<perulangan;huruf++)
     * ini gunanya untuk menghapus
     *------------------------------------------- */
 
-    kiri = kiri + kalimat01[huruf];
-    //kiri += kalimat[huruf];
-    //kiri = kalimat.substr(0,huruf+1);
-    //strcat(kiri,kalimat[huruf]);
+    kiri01 = kiri01 + kalimat01[huruf];
+    kanan01 = kalimat01[panjang_kalimat-1-huruf]+kanan01;
+    mvprintw(baris+1,kolom,"%s%s",kiri01.c_str(),kanan01.c_str());
 
-    kanan = kalimat01[panjang_kalimat-1-huruf]+kanan;
+    kiri02 = kiri02 + kalimat02[huruf];
+    kanan02 = kalimat02[panjang_kalimat-1-huruf]+kanan02;
+    mvprintw(baris+2,kolom,"%s%s",kiri02.c_str(),kanan02.c_str());
 
-   /* ------------------------------------------
-    * pada posisi sekarang (baris),
-    * cetak karakter saat ini
-    *------------------------------------------- */
-    mvprintw(baris,kolom,"%s%s",kiri.c_str(),kanan.c_str());
-    mvprintw(20,1,"kiri: %s",kiri.c_str());
-    mvprintw(21,1,"kanan: %s",kanan.c_str());
+
+    //mvprintw(20,1,"kiri: %s",kiri.c_str());
+    //mvprintw(21,1,"kanan: %s",kanan.c_str());
 
     // menghentikan proses selama 1 detik
     refresh(); sleep(1);
