@@ -1,21 +1,30 @@
 
 /* -----------------------------------------
-   program untuk mencetak tulisan yang 
+   program untuk mencetak tulisan yang
    berjalan dari bawah layar ke atas layar
    per karakter
    dibuat oleh dwi sakethi
    menggunakan g++ compiler dan pustaka ncurses
    - 30 september 2021 di studio foto
    - 2 oktober 2021 alhamdulillah jadi juga
-   
+
    program ini diberi nama: bolakbalik.cpp
-   
+
    di-compile dengan perintah:
    g++ bolakbalik.cpp -o tulisan -l ncurses
 
    dijalankan dengan perintah: tulisan
 
    ----------------------------------------- */
+
+/*
+ *     |           .  .  .
+ *     |
+ *  ___|  |  |  |  |  |  |  |\   /|
+ * /   |  |  |  |  |  |  |  | \ / |
+ * \___|   \/ \/   |  |  |  |  V  |
+ *                   _/
+ */
 
 // karena ada proses cetak ke layar dan
 // pemasukan data via keyboard
@@ -46,9 +55,9 @@ using namespace std;
 // fungsi utama di dalam bahasa C++
 int main ()
 {
-  
+
 // mendefinisikan kalimat string 60 karakter
-// diberi spasi fungsinya untuk menghapus	
+// diberi spasi fungsinya untuk menghapus
  string kalimat01="     #                 #               ";
  string kalimat02="     #                                 ";
  string kalimat03="     #            #    #  #            ";
@@ -86,7 +95,7 @@ short int panjang_kalimat;
 short int perulangan;
 
   long int berhenti;
-  
+
 // mengawali mode ncurses
 initscr();
 
@@ -103,7 +112,7 @@ panjang_kalimat = kalimat.length();
 // dibagi dua karena ada potongan kanan dan kiri
 perulangan = (panjang_kalimat/2)+1;
 
-baris = 12; 
+baris = 12;
 
 // looping dari huruf pertama-huruf terakhir
 for (huruf=0;huruf<perulangan;huruf++)
@@ -118,28 +127,28 @@ for (huruf=0;huruf<perulangan;huruf++)
     * pada posisi baris sebelumnya yang makin berkurang
     * (baris+1)dan kolom tetap, cetak spasi
     * ini gunanya untuk menghapus
-    *------------------------------------------- */  
-    
+    *------------------------------------------- */
+
     kiri = kiri + kalimat[huruf];
     //kiri += kalimat[huruf];
     //kiri = kalimat.substr(0,huruf+1);
     //strcat(kiri,kalimat[huruf]);
-   
+
     kanan = kalimat[panjang_kalimat-1-huruf]+kanan;
 
    /* ------------------------------------------
-    * pada posisi sekarang (baris), 
+    * pada posisi sekarang (baris),
     * cetak karakter saat ini
-    *------------------------------------------- */  
+    *------------------------------------------- */
     mvprintw(baris,kolom,"%s%s",kiri.c_str(),kanan.c_str());
     mvprintw(20,1,"kiri: %s",kiri.c_str());
     mvprintw(21,1,"kanan: %s",kanan.c_str());
 
     // menghentikan proses selama 1 detik
-    refresh(); sleep(1);  
+    refresh(); sleep(1);
 }
 
-    refresh(); sleep(5);  
+    refresh(); sleep(5);
 // menutup mode ncurses
 endwin();
 
