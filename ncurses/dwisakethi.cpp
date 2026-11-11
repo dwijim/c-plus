@@ -106,7 +106,7 @@ clear();
 //initcursor(0);
 
 // menghitung panjang kalimat
-panjang_kalimat = kalimat.length();
+panjang_kalimat = kalimat01.length();
 //panjang_kalimat = strlen(kalimat);
 
 // dibagi dua karena ada potongan kanan dan kiri
@@ -129,12 +129,12 @@ for (huruf=0;huruf<perulangan;huruf++)
     * ini gunanya untuk menghapus
     *------------------------------------------- */
 
-    kiri = kiri + kalimat[huruf];
+    kiri = kiri + kalimat01[huruf];
     //kiri += kalimat[huruf];
     //kiri = kalimat.substr(0,huruf+1);
     //strcat(kiri,kalimat[huruf]);
 
-    kanan = kalimat[panjang_kalimat-1-huruf]+kanan;
+    kanan = kalimat01[panjang_kalimat-1-huruf]+kanan;
 
    /* ------------------------------------------
     * pada posisi sekarang (baris),
