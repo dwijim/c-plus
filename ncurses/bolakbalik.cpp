@@ -15,6 +15,10 @@
 
    dijalankan dengan perintah: tulisan
 
+   program lain yang berhubungan dengan contoh ini,
+   sebagai program kelanjutannya adalah program
+   dengan nama: dwibolakbalik.cpp
+
    ----------------------------------------- */
 
 // karena ada proses cetak ke layar dan
