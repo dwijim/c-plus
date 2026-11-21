@@ -170,6 +170,8 @@ int main() {
      * */
     barisAwal = 17;
     kolomAwal = 59;
+    mvprintw(18,5,"%s %d", "Batas atas   : ",batasAtas);
+    mvprintw(19,5,"%s %d", "Batas kiri   : ",batasKiri);
     mvprintw(20,5,"%s %d", "Jumlah baris : ",jumlahBaris);
     mvprintw(21,5,"%s %d", "Jumlah kolom : ",jumlahKolom);
     mvprintw(22,5,"%s %d", "Tinggi lab   : ",TINGGI);
