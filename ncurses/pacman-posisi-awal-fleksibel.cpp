@@ -81,7 +81,7 @@ int main() {
 
     short int barisAwal, kolomAwal;
     int tombol,i,jumlah_karakter;
-    short int baris, kolom;
+    short int baris, kolom,barisArray, kolomArray;
     bool boleh[200] [200];
 
     setlocale(LC_ALL, "");
@@ -173,6 +173,9 @@ int main() {
     baris = barisAwal;
     kolom = kolomAwal;
 
+    barisArray = 0;
+    kolomArray = 0;
+
     mvprintw(barisAwal,kolomAwal,wajah);
 
     // membuat looping selama tidak menekan tombol ESC
@@ -183,6 +186,7 @@ int main() {
         mvprintw(27,5,"%s %d", "Kolom        : ",kolom);
 
         mvprintw(28,5,"%s %d", "Boleh Kiri   : ",boleh[baris][kolom-1]);
+        mvprintw(29,5,"%s %d", "Boleh Kanan  : ",boleh[baris][kolom+1]);
 
         if ((tombol = getch()) == ERR) {
             /* user hasn't responded
