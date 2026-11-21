@@ -1,8 +1,14 @@
-// Labirin Pac-Man polos menggunakan karakter garis tabel (box drawing) dan ncurses
-// Kompilasi : g++ -std=c++17 -Wall -O2 labirin.cpp -o labirin -lncursesw
-// Jalankan  : ./labirin       (tekan tombol apa saja untuk keluar)
-// Catatan   : butuh terminal UTF-8 dan library ncursesw (libncursesw5-dev / ncurses-devel)
+/*
+nama file : pacman-posisi-awal-fleksibel.cpp
 
+Labirin Pac-Man polos menggunakan karakter garis tabel (box drawing) dan ncurses
+Kompilasi : g++ -std=c++17 -Wall -O2 pacman-posisi-awal-fleksibel.cpp -o coba -lncursesw
+Jalankan  : ./coba       (tekan tombol ESC untuk keluar)
+Catatan   : butuh terminal UTF-8 dan library ncursesw (libncursesw5-dev / ncurses-devel)
+
+dimodifikasi oleh dwi sakethi
+
+*/
 #include <ncurses.h>
 
 #include <clocale>
