@@ -15,6 +15,8 @@ dimodifikasi oleh dwi sakethi
 #include <cstdio>
 #include <string>
 #include <vector>
+#include <iostream>
+
 
 using namespace std;
 
@@ -85,7 +87,7 @@ static const char *KARAKTER_GARIS[16] = {
 
 int main() {
 
-    short int barisAwal, kolomAwal;
+    short int barisAwal, kolomAwal,bariscek,kolomcek,kolomkanan,kolomkiri,kolomif;
     int tombol,i,jumlah_karakter;
     short int baris, kolom,barisArray, kolomArray,kolomnya;
     bool boleh[200] [200];
@@ -170,31 +172,40 @@ int main() {
      * */
     barisAwal = 17;
     kolomAwal = 59;
-    mvprintw(18,5,"%s %d", "Batas atas   : ",batasAtas);
-    mvprintw(19,5,"%s %d", "Batas kiri   : ",batasKiri);
-    mvprintw(20,5,"%s %d", "Jumlah baris : ",jumlahBaris);
-    mvprintw(21,5,"%s %d", "Jumlah kolom : ",jumlahKolom);
-    mvprintw(22,5,"%s %d", "Tinggi lab   : ",TINGGI);
-    mvprintw(23,5,"%s %d", "Lebar lab    : ",LEBAR);
-    mvprintw(24,5,"%s %d", "Baris awal   : ",barisAwal);
-    mvprintw(25,5,"%s %d", "Kolom awal   : ",kolomAwal);
+    mvprintw(14,5,"%s %d", "Batas atas   : ",batasAtas);
+    mvprintw(15,5,"%s %d", "Batas kiri   : ",batasKiri);
+    mvprintw(16,5,"%s %d", "Jumlah baris : ",jumlahBaris);
+    mvprintw(17,5,"%s %d", "Jumlah kolom : ",jumlahKolom);
+    mvprintw(18,5,"%s %d", "Tinggi lab   : ",TINGGI);
+    mvprintw(19,5,"%s %d", "Lebar lab    : ",LEBAR);
+    mvprintw(20,5,"%s %d", "Baris awal   : ",barisAwal);
+    mvprintw(21,5,"%s %d", "Kolom awal   : ",kolomAwal);
     baris = barisAwal;
     kolom = kolomAwal;
 
-    barisArray = baris-4;
-    kolomArray = kolom-35;
+    barisArray = baris-3;
+    kolomArray = kolom-31;
+
+    bariscek = 13;
+    kolomcek = 28;
 
     mvprintw(barisAwal,kolomAwal,wajah);
 
+    cout << boolalpha;
     // membuat looping selama tidak menekan tombol ESC
     while (tombol != KEY_ESC)
     {
 
-        mvprintw(26,5,"%s %d", "Baris        : ",baris);
-        mvprintw(27,5,"%s %d", "Kolom        : ",kolom);
+        mvprintw(22,5,"%s %d", "Baris        : ",baris);
+        mvprintw(23,5,"%s %d", "Kolom        : ",kolom);
 
-        mvprintw(28,5,"%s %d", "Boleh Kiri   : ",boleh[barisArray][kolomArray-1]);
-        mvprintw(29,5,"%s %d", "Boleh Kanan  : ",boleh[barisArray][kolomArray+1]);
+        kolomkiri = kolomArray-1;
+
+        mvprintw(24,5,"%s %d", "Boleh Kiri x  : ",boleh[barisArray][kolomkiri]);
+
+        kolomkanan = kolomArray+1;
+        mvprintw(25,5,"%s %d", "Boleh Kanan x : ",boleh[barisArray][kolomkanan]);
+        kolomif = kolomArray-1;
 
         if ((tombol = getch()) == ERR) {
             /* user hasn't responded
@@ -208,16 +219,17 @@ int main() {
             if (tombol == KEY_ENTER)
             {
             }
-            else if ( (tombol == KEY_LEFT) and (boleh[barisArray] [kolomArray-1]==1)  )
-                {
-                // bergerak ke kiri, jadi kolom berkurang
-                kolom = kolom - 1;
-                kolomArray = kolomArray - 1;
-                // jika sudah mentok ke kiri, kolom tetap 1
-                if (kolom<=1) kolom=1;
-                mvprintw (baris,kolom,wajah);
-                mvprintw (baris,kolom+1," ");
-            }
+//            else if ( (tombol == KEY_LEFT) )
+                 else if ( (tombol == KEY_LEFT) and (boleh[barisArray] [kolomif]==1)  )
+                 {
+                 // bergerak ke kiri, jadi kolom berkurang
+                 kolom = kolom - 1;
+                 kolomArray = kolomArray - 1;
+                 // jika sudah mentok ke kiri, kolom tetap 1
+                 if (kolom<=1) kolom=1;
+                 mvprintw (baris,kolom,wajah);
+                 mvprintw (baris,kolom+1," ");
+                 }
             else if(tombol == KEY_RIGHT)
             {
                 // bergerak ke kiri, jadi kolom berkurang
@@ -253,13 +265,19 @@ int main() {
             }
 
             kolomnya = kolomArray-1;
-            mvprintw(11,5,"%s %3d", "Boleh[9][27]    : ",boleh[9][27]);
-            mvprintw(12,5,"%s %3d", "Boleh         : ",boleh[barisArray][kolomnya]);
-            mvprintw(13,5,"%s %3d", "Boleh         : ",boleh[barisArray][kolomArray-1]);
-            mvprintw(14,5,"%s %3d", "Baris array   : ",barisArray);
-            mvprintw(15,5,"%s %3d", "Kolom array   : ",kolomArray);
-            mvprintw(16,5,"%s %3d", "Baris layar   : ",baris);
-            mvprintw(17,5,"%s %3d", "Kolom layar   : ",kolom);
+//            mvprintw(7, 5,"%s %3d", "baris cek    : ",boleh[1][2]);
+            /*
+            mvprintw(8,5,"%s %3d", "cek    : ",boleh[bariscek][kolomcek]);
+            mvprintw(9, 5,"%s %3d", "Boleh[1][2]    : ",boleh[1][2]);
+            mvprintw(10,5,"%s %3d", "Boleh[1][1]    : ",boleh[1][1]);
+            mvprintw(11,5,"%s %3d", "Boleh[0][0]    : ",boleh[0][0]);
+            */
+            mvprintw(8,5,"%s %3d", "Boleh saat ini: ",boleh[barisArray][kolomArray]);
+            mvprintw(9,5,"%s %3d", "Boleh kiri    : ",boleh[barisArray][kolomnya]);
+            mvprintw(10,5,"%s %3d", "Baris array   : ",barisArray);
+            mvprintw(11,5,"%s %3d", "Kolom array   : ",kolomArray);
+            mvprintw(12,5,"%s %3d", "Baris layar   : ",baris);
+            mvprintw(13,5,"%s %3d", "Kolom layar   : ",kolom);
     }
 
     //mvprintw(10,30,"😀");
