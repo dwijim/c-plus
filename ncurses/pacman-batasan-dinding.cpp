@@ -92,6 +92,52 @@ int main() {
     short int baris, kolom,barisArray, kolomArray,kolomnya;
     bool boleh[200] [200];
 
+
+    string tulisan[20];
+    string tulisan_sementara;
+/*
+    tulisan[ 0] = L"1234567890123456789012345678901234567";
+    tulisan[ 1] = L"╔═════════════════╦═════════════════╗";
+    tulisan[ 2] = L"║                 ║                 ║";
+    tulisan[ 3] = L"║   ═══   ═════   ║   ═════   ═══   ║";
+    tulisan[ 4] = L"║                                   ║";
+    tulisan[ 5] = L"║   ═══   ║   ════╦════   ║   ═══   ║";
+    tulisan[ 6] = L"║         ║       ║       ║         ║";
+    tulisan[ 7] = L"╠═════╗   ╠════   ║   ════╣   ╔═════╣";
+    tulisan[ 8] = L"║     ║   ║               ║   ║     ║";
+    tulisan[ 9] = L"╚═════╝   ║   ╔═══──══╗   ║   ╚═════╝";
+    tulisan[10] = L"          ║   ║       ║   ║          ";
+    tulisan[11] = L"╔═════╗   ║   ╚═══════╝   ║   ╔═════╗";
+    tulisan[12] = L"║     ║   ║               ║   ║     ║";
+    tulisan[13] = L"╠═════╝   ╠════   ║   ════╣   ╚═════╣";
+    tulisan[14] = L"║         ║       ║       ║         ║";
+    tulisan[15] = L"║   ═══   ║   ════╩════   ║   ═══   ║";
+    tulisan[16] = L"║                                   ║";
+    tulisan[17] = L"║   ═══   ═════   ║   ═════   ═══   ║";
+    tulisan[18] = L"║                 ║                 ║";
+    tulisan[19] = L"╚═════════════════╩═════════════════╝";
+*/
+    tulisan[ 0] = "1234567890123456789012345678901234567";
+    tulisan[ 1] = "╔═════════════════╦═════════════════╗";
+    tulisan[ 2] = "║                 ║                 ║";
+    tulisan[ 3] = "║   ═══   ═════   ║   ═════   ═══   ║";
+    tulisan[ 4] = "║                                   ║";
+    tulisan[ 5] = "║   ═══   ║   ════╦════   ║   ═══   ║";
+    tulisan[ 6] = "║         ║       ║       ║         ║";
+    tulisan[ 7] = "╠═════╗   ╠════   ║   ════╣   ╔═════╣";
+    tulisan[ 8] = "║     ║   ║               ║   ║     ║";
+    tulisan[ 9] = "╚═════╝   ║   ╔═══──══╗   ║   ╚═════╝";
+    tulisan[10] = "          ║   ║       ║   ║          ";
+    tulisan[11] = "╔═════╗   ║   ╚═══════╝   ║   ╔═════╗";
+    tulisan[12] = "║     ║   ║               ║   ║     ║";
+    tulisan[13] = "╠═════╝   ╠════   ║   ════╣   ╚═════╣";
+    tulisan[14] = "║         ║       ║       ║         ║";
+    tulisan[15] = "║   ═══   ║   ════╩════   ║   ═══   ║";
+    tulisan[16] = "║                                   ║";
+    tulisan[17] = "║   ═══   ═════   ║   ═════   ═══   ║";
+    tulisan[18] = "║                 ║                 ║";
+    tulisan[19] = "╚═════════════════╩═════════════════╝";
+
     setlocale(LC_ALL, "");
     initscr();
     cbreak();
@@ -170,21 +216,44 @@ int main() {
      Kolom awal   :  59
      *
      * */
-    barisAwal = 17;
-    kolomAwal = 59;
-    mvprintw(14,5,"%s %d", "Batas atas   : ",batasAtas);
-    mvprintw(15,5,"%s %d", "Batas kiri   : ",batasKiri);
-    mvprintw(16,5,"%s %d", "Jumlah baris : ",jumlahBaris);
-    mvprintw(17,5,"%s %d", "Jumlah kolom : ",jumlahKolom);
-    mvprintw(18,5,"%s %d", "Tinggi lab   : ",TINGGI);
-    mvprintw(19,5,"%s %d", "Lebar lab    : ",LEBAR);
-    mvprintw(20,5,"%s %d", "Baris awal   : ",barisAwal);
-    mvprintw(21,5,"%s %d", "Kolom awal   : ",kolomAwal);
+
+    // hapus tampilan labirin yang sudah dibuat sebelumnya
+    clear();
+
+    for (baris=0;baris<=19;baris++)
+    {
+        mvprintw(7+baris,30,"%s",tulisan[baris].c_str());
+        tulisan_sementara = tulisan[baris][2];
+        //tulisan_sementara = tulisan_sementara[1];
+        for(kolom=0;kolom<=36;kolom++)
+          {
+             if (kolom==0)
+                 {
+                     ///mvprintw(7+baris,70,"%s",tulisan_sementara.c_str());
+                     //mvprintw(7+baris,70,"%s",tulisan_sementara);
+                     //mvaddwstr(7+baris, 70, tulisan_sementara);
+                     //wchar_t pertama[2] = { tulisan[baris][0], L'\0' };   // karakter + penutup
+                     //mvaddwstr(7+baris, 70, pertama);
+                 }
+          }
+        //mvprintw(7+baris,30,"%s","tulisan[baris]");
+        //mvaddwstr(7+baris, 30, tulisan[baris].c_str());
+    }
+    barisAwal = 11;
+    kolomAwal = 39;
+    mvprintw(14,5,"%s %3d", "Batas atas   : ",batasAtas);
+    mvprintw(15,5,"%s %3d", "Batas kiri   : ",batasKiri);
+    mvprintw(16,5,"%s %3d", "Jumlah baris : ",jumlahBaris);
+    mvprintw(17,5,"%s %3d", "Jumlah kolom : ",jumlahKolom);
+    mvprintw(18,5,"%s %3d", "Tinggi lab   : ",TINGGI);
+    mvprintw(19,5,"%s %3d", "Lebar lab    : ",LEBAR);
+    mvprintw(20,5,"%s %3d", "Baris awal   : ",barisAwal);
+    mvprintw(21,5,"%s %3d", "Kolom awal   : ",kolomAwal);
     baris = barisAwal;
     kolom = kolomAwal;
 
-    barisArray = baris-3;
-    kolomArray = kolom-31;
+    barisArray = baris-10;
+    kolomArray = kolom-38;
 
     bariscek = 13;
     kolomcek = 28;
@@ -199,14 +268,30 @@ int main() {
         mvprintw(22,5,"%s %d", "Baris        : ",baris);
         mvprintw(23,5,"%s %d", "Kolom        : ",kolom);
 
+        /*
         kolomkiri = kolomArray-1;
 
         mvprintw(24,5,"%s %d", "Boleh Kiri x  : ",boleh[barisArray][kolomkiri]);
 
         kolomkanan = kolomArray+1;
         mvprintw(25,5,"%s %d", "Boleh Kanan x : ",boleh[barisArray][kolomkanan]);
+*/
         kolomif = kolomArray-1;
-
+        //            kolomnya = kolomArray-1;
+        //            mvprintw(7, 5,"%s %3d", "baris cek    : ",boleh[1][2]);
+        /*
+         *            mvprintw(8,5,"%s %3d", "cek    : ",boleh[bariscek][kolomcek]);
+         *            mvprintw(9, 5,"%s %3d", "Boleh[1][2]    : ",boleh[1][2]);
+         *            mvprintw(10,5,"%s %3d", "Boleh[1][1]    : ",boleh[1][1]);
+         *            mvprintw(11,5,"%s %3d", "Boleh[0][0]    : ",boleh[0][0]);
+         */
+        mvprintw(8,5,"%s %3d",  "Boleh saat ini: ",boleh[barisArray][kolomArray]);
+        mvprintw(9,5,"%s %3d", "Boleh kiri    : ",boleh[barisArray][kolomif]);
+        //            mvprintw(9,5,"%s %3d",  "Boleh kiri    : ",kolomArray-1);
+        mvprintw(10,5,"%s %3d", "Baris array   : ",barisArray);
+        mvprintw(11,5,"%s %3d", "Kolom array   : ",kolomArray);
+        mvprintw(12,5,"%s %3d", "Baris layar   : ",baris);
+        mvprintw(13,5,"%s %3d", "Kolom layar   : ",kolom);
         if ((tombol = getch()) == ERR) {
             /* user hasn't responded
              *               ...
@@ -219,8 +304,8 @@ int main() {
             if (tombol == KEY_ENTER)
             {
             }
-//            else if ( (tombol == KEY_LEFT) )
-                 else if ( (tombol == KEY_LEFT) and (boleh[barisArray] [kolomif]==1)  )
+            else if ( (tombol == KEY_LEFT) )
+           //      else if ( (tombol == KEY_LEFT) and (boleh[barisArray] [kolomif]==1)  )
                  {
                  // bergerak ke kiri, jadi kolom berkurang
                  kolom = kolom - 1;
@@ -264,20 +349,6 @@ int main() {
                 mvprintw (baris-1,kolom," ");
             }
 
-            kolomnya = kolomArray-1;
-//            mvprintw(7, 5,"%s %3d", "baris cek    : ",boleh[1][2]);
-            /*
-            mvprintw(8,5,"%s %3d", "cek    : ",boleh[bariscek][kolomcek]);
-            mvprintw(9, 5,"%s %3d", "Boleh[1][2]    : ",boleh[1][2]);
-            mvprintw(10,5,"%s %3d", "Boleh[1][1]    : ",boleh[1][1]);
-            mvprintw(11,5,"%s %3d", "Boleh[0][0]    : ",boleh[0][0]);
-            */
-            mvprintw(8,5,"%s %3d", "Boleh saat ini: ",boleh[barisArray][kolomArray]);
-            mvprintw(9,5,"%s %3d", "Boleh kiri    : ",boleh[barisArray][kolomnya]);
-            mvprintw(10,5,"%s %3d", "Baris array   : ",barisArray);
-            mvprintw(11,5,"%s %3d", "Kolom array   : ",kolomArray);
-            mvprintw(12,5,"%s %3d", "Baris layar   : ",baris);
-            mvprintw(13,5,"%s %3d", "Kolom layar   : ",kolom);
     }
 
     //mvprintw(10,30,"😀");
