@@ -93,9 +93,8 @@ int main() {
     bool boleh[200] [200];
 
 
-    string tulisan[20];
+    wstring tulisan[20];
     string tulisan_sementara;
-/*
     tulisan[ 0] = L"1234567890123456789012345678901234567";
     tulisan[ 1] = L"╔═════════════════╦═════════════════╗";
     tulisan[ 2] = L"║                 ║                 ║";
@@ -116,7 +115,9 @@ int main() {
     tulisan[17] = L"║   ═══   ═════   ║   ═════   ═══   ║";
     tulisan[18] = L"║                 ║                 ║";
     tulisan[19] = L"╚═════════════════╩═════════════════╝";
-*/
+
+
+/*
     tulisan[ 0] = "1234567890123456789012345678901234567";
     tulisan[ 1] = "╔═════════════════╦═════════════════╗";
     tulisan[ 2] = "║                 ║                 ║";
@@ -137,7 +138,7 @@ int main() {
     tulisan[17] = "║   ═══   ═════   ║   ═════   ═══   ║";
     tulisan[18] = "║                 ║                 ║";
     tulisan[19] = "╚═════════════════╩═════════════════╝";
-
+*/
     setlocale(LC_ALL, "");
     initscr();
     cbreak();
@@ -222,8 +223,9 @@ int main() {
 
     for (baris=0;baris<=19;baris++)
     {
-        mvprintw(7+baris,30,"%s",tulisan[baris].c_str());
-        tulisan_sementara = tulisan[baris][2];
+        //mvprintw(7+baris,30,"%s",tulisan[baris].c_str());
+        mvaddwstr(baris, 30, tulisan[baris].c_str());
+        //tulisan_sementara = tulisan[baris][2];
         //tulisan_sementara = tulisan_sementara[1];
         for(kolom=0;kolom<=36;kolom++)
           {
@@ -234,6 +236,10 @@ int main() {
                      //mvaddwstr(7+baris, 70, tulisan_sementara);
                      //wchar_t pertama[2] = { tulisan[baris][0], L'\0' };   // karakter + penutup
                      //mvaddwstr(7+baris, 70, pertama);
+                     if (tulisan[baris][kolom] == L' ')
+                     {
+                        mvprintw(7+baris,70,"t");
+                     }
                  }
           }
         //mvprintw(7+baris,30,"%s","tulisan[baris]");
