@@ -1,8 +1,8 @@
 /*
-nama file : pacman-posisi-awal-fleksibel.cpp
+nama file : pacman-batasan-dinding.cpp
 
 Labirin Pac-Man polos menggunakan karakter garis tabel (box drawing) dan ncurses
-Kompilasi : g++ -std=c++17 -Wall -O2 pacman-posisi-awal-fleksibel.cpp -o coba -lncursesw
+Kompilasi : g++ -std=c++17 -Wall -O2 pacman-batasan-dinding.cpp -o coba -lncursesw
 Jalankan  : ./coba       (tekan tombol ESC untuk keluar)
 Catatan   : butuh terminal UTF-8 dan library ncursesw (libncursesw5-dev / ncurses-devel)
 
@@ -251,12 +251,13 @@ int main() {
                   {
                       boleh[baris][kolom] = false;
                   }
-                  mvprintw(baris, 80+kolom,"%1d",boleh[baris][kolom]);
+                  //mvprintw(baris, 80+kolom,"%1d",boleh[baris][kolom]);
           }
         //mvaddwstr(7+baris, 30+kolom, tulisan[baris][kolom]);
     }
     barisAwal = 10;
     kolomAwal = 46;
+    /*
     mvprintw(14,5,"%s %3d", "Batas atas   : ",batasAtas);
     mvprintw(15,5,"%s %3d", "Batas kiri   : ",batasKiri);
     mvprintw(16,5,"%s %3d", "Jumlah baris : ",jumlahBaris);
@@ -265,6 +266,7 @@ int main() {
     mvprintw(19,5,"%s %3d", "Lebar lab    : ",LEBAR);
     mvprintw(20,5,"%s %3d", "Baris awal   : ",barisAwal);
     mvprintw(21,5,"%s %3d", "Kolom awal   : ",kolomAwal);
+    */
     baris = barisAwal;
     kolom = kolomAwal;
 
@@ -281,8 +283,8 @@ int main() {
     while (tombol != KEY_ESC)
     {
 
-        mvprintw(22,5,"%s %d", "Baris        : ",baris);
-        mvprintw(23,5,"%s %d", "Kolom        : ",kolom);
+        //mvprintw(22,5,"%s %d", "Baris        : ",baris);
+        //mvprintw(23,5,"%s %d", "Kolom        : ",kolom);
 
         /*
         kolomkiri = kolomArray-1;
@@ -301,11 +303,15 @@ int main() {
          *            mvprintw(10,5,"%s %3d", "Boleh[1][1]    : ",boleh[1][1]);
          *            mvprintw(11,5,"%s %3d", "Boleh[0][0]    : ",boleh[0][0]);
          */
+        kolomkanan = kolomArray+2;
+        /*
+        mvprintw(7,5,"%s %3d %3d",  "Boleh kanan   : ",boleh[barisArray][kolomkanan],kolomkanan);
         mvprintw(8,5,"%s %3d",  "Boleh saat ini: ",boleh[barisArray][kolomArray]);
         mvprintw(9,5,"%s %3d %3d", "Boleh kiri    : ",boleh[barisArray][kolomif], kolomif);
         //            mvprintw(9,5,"%s %3d",  "Boleh kiri    : ",kolomArray-1);
         mvprintw(10,5,"%s %3d", "Baris array   : ",barisArray);
         mvprintw(11,5,"%s %3d", "Kolom array   : ",kolomArray);
+        */
         //mvprintw(12,5,"%s %3d", "Baris layar   : ",baris);
         //mvprintw(13,5,"%s %3d", "Kolom layar   : ",kolom);
         if ((tombol = getch()) == ERR) {
@@ -330,10 +336,14 @@ int main() {
                  // jika sudah mentok ke kiri, kolom tetap 1
                  if (kolom<=1) kolom=1;
                  mvprintw (baris,kolom,wajah);
-                 mvprintw (baris,kolom+1," ");
+                     if (boleh[barisArray] [kolomArray+1]==false)
+                     {
+                       mvprintw (baris,kolom+1," ");
+                     }
                  }
-            else if(tombol == KEY_RIGHT)
-            {
+//            else if(tombol == KEY_RIGHT)
+else if ( (tombol == KEY_RIGHT) and (boleh[barisArray] [kolomArray+2]==true)  )
+{
                 // bergerak ke kiri, jadi kolom berkurang
                 kolom = kolom + 1;
                 kolomArray = kolomArray + 1;
